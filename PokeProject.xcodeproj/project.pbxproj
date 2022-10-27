@@ -14,7 +14,6 @@
 		CE7E65ED290B0C5500621DB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EB290B0C5500621DB6 /* Main.storyboard */; };
 		CE7E65EF290B0C5700621DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EE290B0C5700621DB6 /* Assets.xcassets */; };
 		CE7E65F2290B0C5700621DB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */; };
-		CE7E65FA290B0C9300621DB6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65F9290B0C9300621DB6 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		CE7E65EE290B0C5700621DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7E65F1290B0C5700621DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7E65F3290B0C5700621DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE7E65F9290B0C9300621DB6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +48,6 @@
 				A46F0CF8F28EE6BD312266B6 /* Pods-PokeProject.debug.xcconfig */,
 				8E5723AEAF8BBD8BEB055130 /* Pods-PokeProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -90,7 +87,6 @@
 				CE7E65EE290B0C5700621DB6 /* Assets.xcassets */,
 				CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */,
 				CE7E65F3290B0C5700621DB6 /* Info.plist */,
-				CE7E65F9290B0C9300621DB6 /* .gitignore */,
 			);
 			path = PokeProject;
 			sourceTree = "<group>";
@@ -154,7 +150,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7E65FA290B0C9300621DB6 /* .gitignore in Resources */,
 				CE7E65F2290B0C5700621DB6 /* LaunchScreen.storyboard in Resources */,
 				CE7E65EF290B0C5700621DB6 /* Assets.xcassets in Resources */,
 				CE7E65ED290B0C5500621DB6 /* Main.storyboard in Resources */,
