@@ -6,5 +6,7 @@ target 'PokeProject' do
   use_frameworks!
 
   # Pods for PokeProject
+  
+  pod 'SwiftLint', '0.49.1'
 
 end
