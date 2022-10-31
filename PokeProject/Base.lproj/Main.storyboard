@@ -21,29 +21,24 @@
                                 <rect key="frame" x="5" y="52" width="380" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nameCell" id="7h7-9h-jZO" customClass="NamesTableViewCell" customModule="PokeProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="380" height="47.333332061767578"/>
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nameCell" textLabel="NyY-wA-fpi" style="IBUITableViewCellStyleDefault" id="7h7-9h-jZO" customClass="NamesTableViewCell" customModule="PokeProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="380" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7h7-9h-jZO" id="cwV-Pa-ffP" customClass="NamesTableViewCell" customModule="PokeProject" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="380" height="47.333332061767578"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7h7-9h-jZO" id="cwV-Pa-ffP" customClass="NamesTableViewCell" customModule="PokeProject" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="380" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZe-9a-Icu">
-                                                    <rect key="frame" x="30" y="12.999999999999998" width="320" height="21.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NyY-wA-fpi">
+                                                    <rect key="frame" x="20" y="0.0" width="340" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="dZe-9a-Icu" secondAttribute="trailing" constant="10" id="Drm-KJ-PgW"/>
-                                                <constraint firstItem="dZe-9a-Icu" firstAttribute="top" secondItem="cwV-Pa-ffP" secondAttribute="topMargin" constant="2" id="JOl-MK-xZz"/>
-                                                <constraint firstItem="dZe-9a-Icu" firstAttribute="leading" secondItem="cwV-Pa-ffP" secondAttribute="leadingMargin" constant="10" id="eIf-fc-ouO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="dZe-9a-Icu" secondAttribute="bottom" constant="2" id="fvJ-QP-XMl"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="dZe-9a-Icu" id="vXg-15-xsa"/>
+                                            <outlet property="nameLabel" destination="NyY-wA-fpi" id="NiA-Ok-IWg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

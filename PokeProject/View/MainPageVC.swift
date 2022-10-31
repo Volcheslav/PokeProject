@@ -10,7 +10,7 @@ import UIKit
 final class MainPageVC: UIViewController {
     
     private let cellID  = "nameCell"
-    
+        
     var tableViewModel: TableViewModelType?
     
     @IBOutlet private weak var namesTableView: UITableView!
@@ -19,12 +19,16 @@ final class MainPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewModel = NamesTableViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //  tableViewModel = NamesTableViewModel()
+            self.tableViewModel = NamesTableViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        namesTableView.reloadData()
     }
 
 }
