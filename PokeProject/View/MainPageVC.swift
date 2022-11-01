@@ -11,8 +11,9 @@ final class MainPageVC: UIViewController {
     
     private let cellID  = "nameCell"
         
-    var tableViewModel: TableViewModelType?
+   // var tableViewModel: TableViewModelType?
     
+    @IBOutlet private var tableViewModel: NamesTableViewModel!
     @IBOutlet private weak var namesTableView: UITableView!
     
     // MARK: - View lifecycle
@@ -23,14 +24,10 @@ final class MainPageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            self.tableViewModel = NamesTableViewModel()
+        DispatchQueue.main.async {
+            self.namesTableView.reloadData()
+        }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        namesTableView.reloadData()
-    }
-
 }
 
 extension MainPageVC: UITableViewDelegate, UITableViewDataSource {

@@ -23,4 +23,5 @@ class NetworkDataFetcher {
             completion(response)
         }
     }
+    
 }
