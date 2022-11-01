@@ -50,12 +50,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q6A-7U-o4g" secondAttribute="bottom" constant="5" id="EqJ-ux-Y1Q"/>
                             <constraint firstItem="Q6A-7U-o4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="aDU-mh-bF3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q6A-7U-o4g" secondAttribute="trailing" constant="5" id="mJE-GW-Wlx"/>
                             <constraint firstItem="Q6A-7U-o4g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="oMj-bb-14t"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jM4-7Z-AIb" appends="YES" id="zzG-gO-xYe"/>
+                            <outletCollection property="gestureRecognizers" destination="GTD-a2-fzQ" appends="YES" id="jNb-GM-l45"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="namesTableView" destination="Q6A-7U-o4g" id="Vtp-FR-XCT"/>
@@ -64,6 +69,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="TtN-WY-D13" customClass="NamesTableViewModel" customModule="PokeProject" customModuleProvider="target"/>
+                <swipeGestureRecognizer direction="left" id="jM4-7Z-AIb">
+                    <connections>
+                        <action selector="rightSwipeUpdate:" destination="BYZ-38-t0r" id="PnX-2n-p8d"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="GTD-a2-fzQ">
+                    <connections>
+                        <action selector="leftSwipeUpdate:" destination="BYZ-38-t0r" id="n3z-ve-W2B"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="949.23076923076917" y="-2.1327014218009479"/>
         </scene>

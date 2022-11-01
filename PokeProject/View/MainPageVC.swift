@@ -13,6 +13,19 @@ final class MainPageVC: UIViewController {
         
    // var tableViewModel: TableViewModelType?
     
+    @IBAction private func leftSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
+        tableViewModel.goLeftPage()
+        DispatchQueue.main.async {
+            self.namesTableView.reloadData()
+        }
+        
+    }
+    @IBAction private func rightSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
+        tableViewModel.goRightPage()
+        DispatchQueue.main.async {
+            self.namesTableView.reloadData()
+        }
+    }
     @IBOutlet private var tableViewModel: NamesTableViewModel!
     @IBOutlet private weak var namesTableView: UITableView!
     

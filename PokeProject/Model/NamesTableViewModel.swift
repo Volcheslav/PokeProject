@@ -25,7 +25,11 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     
     var names: [NamesModel] = []
         
-    private func updateNames() {
+    private func fetchNames() {
+        initTableData(url: self.url)
+    }
+    
+    func initTableData(url: String) {
         networkDataFetcher.dataFetcher(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
             self.names = data.results.map { NamesModel(name: $0.name) }
@@ -34,9 +38,19 @@ class NamesTableViewModel: NSObject, TableViewModelType {
         }
     }
     
+    func goRightPage() {
+        guard let url = nextURl else { return }
+        initTableData(url: url)
+    }
+    
+    func goLeftPage() {
+        guard let url = prevURL else { return }
+        initTableData(url: url)
+    }
+    
     override init() {
         super.init()
-        self.updateNames()
+        self.fetchNames()
     }
 
 }
