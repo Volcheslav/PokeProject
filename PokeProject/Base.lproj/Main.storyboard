@@ -47,15 +47,26 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="eqV-Zr-Tlo"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmE-1p-Q3t">
+                                <rect key="frame" x="154" y="401" width="82.333333333333314" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q6A-7U-o4g" secondAttribute="bottom" constant="5" id="EqJ-ux-Y1Q"/>
+                            <constraint firstItem="LmE-1p-Q3t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="InX-Ca-F6u"/>
+                            <constraint firstItem="LmE-1p-Q3t" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YPo-9u-z1R"/>
                             <constraint firstItem="Q6A-7U-o4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="aDU-mh-bF3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q6A-7U-o4g" secondAttribute="trailing" constant="5" id="mJE-GW-Wlx"/>
                             <constraint firstItem="Q6A-7U-o4g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="oMj-bb-14t"/>
+                            <constraint firstItem="LmE-1p-Q3t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vOW-sV-A6V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LmE-1p-Q3t" secondAttribute="trailing" id="yVY-kL-iBT"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jM4-7Z-AIb" appends="YES" id="zzG-gO-xYe"/>
@@ -65,6 +76,7 @@
                     <connections>
                         <outlet property="namesTableView" destination="Q6A-7U-o4g" id="Vtp-FR-XCT"/>
                         <outlet property="tableViewModel" destination="TtN-WY-D13" id="pqr-nM-b1s"/>
+                        <outlet property="warningLabel" destination="LmE-1p-Q3t" id="e4k-kX-xZx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

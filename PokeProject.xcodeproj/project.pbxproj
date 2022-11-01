@@ -23,6 +23,7 @@
 		CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3391290FC3FE00659C6E /* NetworkManager.swift */; };
 		CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */; };
 		CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */; };
+		CEEA33A52911D1F300659C6E /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33A42911D1F300659C6E /* MainPageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		CEEA3391290FC3FE00659C6E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListMainModel.swift; sourceTree = "<group>"; };
 		CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		CEEA33A42911D1F300659C6E /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				CE47BBA8290C12E800F5956E /* NamesTableViewCellViewModel.swift */,
+				CEEA33A42911D1F300659C6E /* MainPageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */,
 				CE47BB9D290C0A2000F5956E /* NamesModel.swift in Sources */,
+				CEEA33A52911D1F300659C6E /* MainPageViewModel.swift in Sources */,
 				CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */,
 				CE47BB9F290C0C0300F5956E /* NamesTableViewModel.swift in Sources */,
 				CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */,

@@ -10,8 +10,15 @@ import UIKit
 final class MainPageVC: UIViewController {
     
     private let cellID  = "nameCell"
-        
-   // var tableViewModel: TableViewModelType?
+    
+    var viewModel: MainPageViewModel? {
+        didSet {
+            guard let text = viewModel?.text else { return }
+            self.warningLabel.text = text
+        }
+    }
+    
+    @IBOutlet private weak var warningLabel: UILabel!
     
     @IBAction private func leftSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
         tableViewModel.goLeftPage()
@@ -33,12 +40,21 @@ final class MainPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = MainPageViewModel()
+        dissapearLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
             self.namesTableView.reloadData()
+        }
+    }
+    
+    private func dissapearLabel() {
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.warningLabel.isHidden = true
         }
     }
 }
