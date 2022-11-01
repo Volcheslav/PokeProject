@@ -23,6 +23,7 @@
 		CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3391290FC3FE00659C6E /* NetworkManager.swift */; };
 		CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */; };
 		CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */; };
+		CEEA33A12911A51500659C6E /* MainRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33A02911A51500659C6E /* MainRealmModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		CEEA3391290FC3FE00659C6E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListMainModel.swift; sourceTree = "<group>"; };
 		CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		CEEA33A02911A51500659C6E /* MainRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRealmModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				CE47BB9C290C0A2000F5956E /* NamesModel.swift */,
-				CE47BB9E290C0C0300F5956E /* NamesTableViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +108,7 @@
 		CE47BBA7290C12BE00F5956E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CE47BB9E290C0C0300F5956E /* NamesTableViewModel.swift */,
 				CE47BBA8290C12E800F5956E /* NamesTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -133,13 +135,12 @@
 		CE7E65E4290B0C5500621DB6 /* PokeProject */ = {
 			isa = PBXGroup;
 			children = (
-				CEEA3391290FC3FE00659C6E /* NetworkManager.swift */,
-				CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */,
-				CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */,
-				CE47BBA7290C12BE00F5956E /* ViewModel */,
-				CE47BBA4290C0E1400F5956E /* View */,
-				CE47BBA3290C0DE900F5956E /* Protocols */,
 				CE47BBA2290C0DC600F5956E /* Model */,
+				CE47BBA4290C0E1400F5956E /* View */,
+				CE47BBA7290C12BE00F5956E /* ViewModel */,
+				CEEA339E2911A4C300659C6E /* Network Services */,
+				CE47BBA3290C0DE900F5956E /* Protocols */,
+				CEEA339F2911A4FF00659C6E /* Realm */,
 				CE7E65E5290B0C5500621DB6 /* AppDelegate.swift */,
 				CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */,
 				CE7E65EB290B0C5500621DB6 /* Main.storyboard */,
@@ -148,6 +149,24 @@
 				CE7E65F3290B0C5700621DB6 /* Info.plist */,
 			);
 			path = PokeProject;
+			sourceTree = "<group>";
+		};
+		CEEA339E2911A4C300659C6E /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA3391290FC3FE00659C6E /* NetworkManager.swift */,
+				CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */,
+				CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */,
+			);
+			path = "Network Services";
+			sourceTree = "<group>";
+		};
+		CEEA339F2911A4FF00659C6E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA33A02911A51500659C6E /* MainRealmModel.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +181,7 @@
 				CE7E65DF290B0C5500621DB6 /* Frameworks */,
 				CE7E65E0290B0C5500621DB6 /* Resources */,
 				CE02D1FF290C0079008C3321 /* SwiftLint Start */,
+				66FE3D1DE8C6E62683D71363 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +239,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		66FE3D1DE8C6E62683D71363 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeProject/Pods-PokeProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeProject/Pods-PokeProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokeProject/Pods-PokeProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CE02D1FF290C0079008C3321 /* SwiftLint Start */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -268,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */,
+				CEEA33A12911A51500659C6E /* MainRealmModel.swift in Sources */,
 				CE47BB9D290C0A2000F5956E /* NamesModel.swift in Sources */,
 				CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */,
 				CE47BB9F290C0C0300F5956E /* NamesTableViewModel.swift in Sources */,

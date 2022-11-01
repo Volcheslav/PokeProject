@@ -9,4 +9,5 @@ import Foundation
 
 struct NamesModel {
     var name: String
+    var url: String
 }

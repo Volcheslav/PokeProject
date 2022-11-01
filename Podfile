@@ -7,6 +7,7 @@ target 'PokeProject' do
 
   # Pods for PokeProject
   
+  pod 'RealmSwift', '10.32.1'
   pod 'SwiftLint', '0.49.1'
 
 end
