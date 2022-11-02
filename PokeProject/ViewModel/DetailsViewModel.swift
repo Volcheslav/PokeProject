@@ -47,6 +47,20 @@ class DetailsViewModel {
             sprites: sprite,
             types: data.types.map { $0.type.name }.joined(separator: ", "),
             weight: String(data.weight))
+        DispatchQueue.main.async {
+            self.saveToRealm(details: self.details!)
+        }
+    }
+    
+    private func saveToRealm(details: DetailsModel) {
+        let model = RealmPokeModel()
+        model.id = details.id
+        model.height = details.height
+        model.sprites = details.sprites
+        model.weight = details.weight
+        model.name = details.name
+        model.types = details.types
+        RealmManager.shared.saveUniq(id: details.id, model: model)
     }
     
     init(url: String) {

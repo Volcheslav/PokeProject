@@ -16,6 +16,8 @@
 		CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */; };
 		CE47BBAC290C1AAC00F5956E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EB290B0C5500621DB6 /* Main.storyboard */; };
 		CE47BBAD290C1B8D00F5956E /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9A290C075200F5956E /* MainPageVC.swift */; };
+		CE7BA4742912B13400A9E613 /* RealmPokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */; };
+		CE7BA4762912B22100A9E613 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BA4752912B22100A9E613 /* RealmManager.swift */; };
 		CE7E65E6290B0C5500621DB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E65E5290B0C5500621DB6 /* AppDelegate.swift */; };
 		CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */; };
 		CE7E65EF290B0C5700621DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EE290B0C5700621DB6 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		CE47BBA5290C0F6400F5956E /* NamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTableViewCell.swift; sourceTree = "<group>"; };
 		CE47BBA8290C12E800F5956E /* NamesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
+		CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPokeModel.swift; sourceTree = "<group>"; };
+		CE7BA4752912B22100A9E613 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		CE7E65E2290B0C5500621DB6 /* PokeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7E65E5290B0C5500621DB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CE7BA4722912B07D00A9E613 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */,
+				CE7BA4752912B22100A9E613 /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		CE7E65D9290B0C5500621DB6 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +164,7 @@
 		CE7E65E4290B0C5500621DB6 /* PokeProject */ = {
 			isa = PBXGroup;
 			children = (
+				CE7BA4722912B07D00A9E613 /* Realm */,
 				CEEA33A62911D9FA00659C6E /* Network */,
 				CE47BBA7290C12BE00F5956E /* ViewModel */,
 				CE47BBA4290C0E1400F5956E /* View */,
@@ -196,6 +210,7 @@
 				CE7E65DF290B0C5500621DB6 /* Frameworks */,
 				CE7E65E0290B0C5500621DB6 /* Resources */,
 				CE02D1FF290C0079008C3321 /* SwiftLint Start */,
+				8A4CD5C2B0A849F3AA6E9084 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +268,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8A4CD5C2B0A849F3AA6E9084 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeProject/Pods-PokeProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeProject/Pods-PokeProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokeProject/Pods-PokeProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CE02D1FF290C0079008C3321 /* SwiftLint Start */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -308,6 +340,7 @@
 				CEEA33A52911D1F300659C6E /* MainPageViewModel.swift in Sources */,
 				CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */,
 				CEEA33AF2911DF2E00659C6E /* DetailsNetworkModel.swift in Sources */,
+				CE7BA4742912B13400A9E613 /* RealmPokeModel.swift in Sources */,
 				CE47BB9F290C0C0300F5956E /* NamesTableViewModel.swift in Sources */,
 				CEEA33B32912913100659C6E /* UIIamgeViewExtension.swift in Sources */,
 				CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */,
@@ -317,6 +350,7 @@
 				CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */,
 				CE47BBAD290C1B8D00F5956E /* MainPageVC.swift in Sources */,
 				CEEA33AB2911DB4400659C6E /* DetailsVC.swift in Sources */,
+				CE7BA4762912B22100A9E613 /* RealmManager.swift in Sources */,
 				CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */,
 				CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */,
 			);
