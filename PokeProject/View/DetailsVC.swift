@@ -24,35 +24,10 @@ final class DetailsVC: UIViewController {
     @IBAction private func goBack(_ sender: UIButton) {
     }
     
-//    var detailsViewModel: DetailsViewModel? {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.nameLabel.text = self.detailsViewModel?.details?.name
-//                //self.typesLabel.text = self.detailsViewModel?.details?.types
-//                self.weightLabel.text = String(self.detailsViewModel?.details?.weight ?? 0)
-//                self.heightLabel.text = String(self.detailsViewModel?.details?.height ?? 0)
-//            }
-//        }
-//    }
-    
-    var detailsViewModel: DetailsViewModel? {
-        didSet {
-            guard let name = self.detailsViewModel?.details?.name else { return }
-            DispatchQueue.main.async {
-                self.nameLabel.text = name
-            }
-        }
-    }
+    var detailsViewModel: DetailsViewModel?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-      //  print(self.detailsViewModel?.data)
-     //   print(self.detailsViewModel?.details)
-        
-//        guard let name = self.detailsViewModel?.details?.name else { return }
-//        DispatchQueue.main.async {
-//            self.nameLabel.text = name
-//        }
         setLabeles()
     }
     
@@ -63,6 +38,7 @@ final class DetailsVC: UIViewController {
             self.heightLabel.text = "Height: \(details.height) cm"
             self.weightLabel.text = "Weight: \(details.weight) g"
             self.typesLabel.text = "Types: \(details.types)"
+            self.pokeImage.loadFrom(URLAddress: details.sprites)
         }
     }
 }
