@@ -30,7 +30,7 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     }
     
     func initTableData(url: String) {
-        networkDataFetcher.dataFetcher(urlString: url) { [weak self] (data) in
+        networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
             self.names = data.results.map { NamesModel(name: $0.name, url: $0.url) }
             self.prevURL = data.previous

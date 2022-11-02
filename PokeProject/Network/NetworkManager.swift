@@ -1,9 +1,3 @@
-//
-//  NetworkManager.swift
-//  PokeProject
-//
-//  Created by User on 31.10.22.
-//
 
 import Foundation
 
