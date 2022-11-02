@@ -24,7 +24,7 @@ struct DetailsNetworkModel: Codable {
 }
 
 struct Sprites: Codable {
-    let frontDefault: String
+    let frontDefault: String?
     
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"

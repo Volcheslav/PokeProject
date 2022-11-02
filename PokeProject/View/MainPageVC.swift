@@ -71,7 +71,6 @@ final class MainPageVC: UIViewController {
         }
     }
     
-    
 }
 
 extension MainPageVC: UITableViewDelegate, UITableViewDataSource {

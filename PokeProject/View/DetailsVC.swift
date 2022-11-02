@@ -44,21 +44,25 @@ final class DetailsVC: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //detailsViewModel = DetailsViewModel()
-        //print(self.detailsViewModel?.data)
-
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(self.detailsViewModel?.data)
-        print(self.detailsViewModel?.details)
+      //  print(self.detailsViewModel?.data)
+     //   print(self.detailsViewModel?.details)
         
-        guard let name = self.detailsViewModel?.details?.name else { return }
+//        guard let name = self.detailsViewModel?.details?.name else { return }
+//        DispatchQueue.main.async {
+//            self.nameLabel.text = name
+//        }
+        setLabeles()
+    }
+    
+    private func setLabeles() {
+        guard let detailsVM = detailsViewModel, let details = detailsVM.details else { return }
         DispatchQueue.main.async {
-            self.nameLabel.text = name
+            self.nameLabel.text = "\(details.name.capitalized)"
+            self.heightLabel.text = "Height: \(details.height) cm"
+            self.weightLabel.text = "Weight: \(details.weight) g"
+            self.typesLabel.text = "Types: \(details.types)"
         }
     }
 }

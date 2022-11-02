@@ -8,10 +8,10 @@
 import Foundation
 
 struct DetailsModel {
-    var height: Int?
-    var id: Int?
-    var name: String?
-    var sprites: String?
-    var types: [String]?
-    var weight: Int?
+    var height: String
+    var id: String
+    var name: String
+    var sprites: String
+    var types: String
+    var weight: String
 }
