@@ -20,6 +20,10 @@ final class MainPageVC: UIViewController {
     
     @IBOutlet private weak var warningLabel: UILabel!
     
+    @IBAction private func goMainScreen(_ sender: UIStoryboardSegue) {
+        
+    }
+    
     @IBAction private func leftSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
         tableViewModel.goLeftPage()
         DispatchQueue.main.async {
@@ -66,6 +70,8 @@ final class MainPageVC: UIViewController {
             }
         }
     }
+    
+    
 }
 
 extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
