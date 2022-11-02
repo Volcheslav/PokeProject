@@ -57,6 +57,15 @@ final class MainPageVC: UIViewController {
             self.warningLabel.isHidden = true
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let id = segue.identifier, let tableViewModel = tableViewModel else { return }
+        if id == "detailsSegue" {
+            if let dvc = segue.destination as? DetailsVC {
+                dvc.detailsViewModel = tableViewModel.viewModelForSelectedRow()
+            }
+        }
+    }
 }
 
 extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
@@ -74,4 +83,10 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         return tableViewCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let tableViewModel = tableViewModel else { return }
+        tableViewModel.selectRow(atIndexPath: indexPath)
+        
+        performSegue(withIdentifier: "detailsSegue", sender: nil)
+    }
 }

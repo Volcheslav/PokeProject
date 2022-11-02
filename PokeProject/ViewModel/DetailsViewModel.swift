@@ -27,7 +27,8 @@ class DetailsViewModel {
         }
     }
     
-    init() {
+    init(url: String) {
+        self.url = url
         self.getDetails()
     }
 }

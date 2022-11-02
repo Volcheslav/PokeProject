@@ -9,6 +9,7 @@ import Foundation
 
 class NamesTableViewModel: NSObject, TableViewModelType {
     
+    private var selectedIndexPath: IndexPath?
     var networkDataFetcher = NetworkDataFetcher()
     let url = "https://pokeapi.co/api/v2/pokemon"
     var nextURl: String?
@@ -48,9 +49,18 @@ class NamesTableViewModel: NSObject, TableViewModelType {
         initTableData(url: url)
     }
     
+    func viewModelForSelectedRow() -> DetailsViewModel? {
+        guard let selectedIndexPath = selectedIndexPath else { return nil }
+        return DetailsViewModel(url: names[selectedIndexPath.row].url)
+    }
+    
+    func selectRow(atIndexPath: IndexPath) {
+        self.selectedIndexPath = atIndexPath
+    }
+    
     override init() {
         super.init()
         self.fetchNames()
     }
-
+    
 }

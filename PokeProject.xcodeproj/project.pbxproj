@@ -24,7 +24,6 @@
 		CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */; };
 		CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */; };
 		CEEA33A52911D1F300659C6E /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33A42911D1F300659C6E /* MainPageViewModel.swift */; };
-		CEEA33A92911DABD00659C6E /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEA33A82911DABD00659C6E /* Details.storyboard */; };
 		CEEA33AB2911DB4400659C6E /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AA2911DB4400659C6E /* DetailsVC.swift */; };
 		CEEA33AD2911DE0300659C6E /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AC2911DE0300659C6E /* DetailsViewModel.swift */; };
 		CEEA33AF2911DF2E00659C6E /* DetailsNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AE2911DF2E00659C6E /* DetailsNetworkModel.swift */; };
@@ -53,7 +52,6 @@
 		CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListMainModel.swift; sourceTree = "<group>"; };
 		CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		CEEA33A42911D1F300659C6E /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
-		CEEA33A82911DABD00659C6E /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		CEEA33AA2911DB4400659C6E /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		CEEA33AC2911DE0300659C6E /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		CEEA33AE2911DF2E00659C6E /* DetailsNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNetworkModel.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			children = (
 				CE7E65EB290B0C5500621DB6 /* Main.storyboard */,
 				CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */,
-				CEEA33A82911DABD00659C6E /* Details.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -247,7 +244,6 @@
 				CE47BBAC290C1AAC00F5956E /* Main.storyboard in Resources */,
 				CE7E65F2290B0C5700621DB6 /* LaunchScreen.storyboard in Resources */,
 				CE7E65EF290B0C5700621DB6 /* Assets.xcassets in Resources */,
-				CEEA33A92911DABD00659C6E /* Details.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

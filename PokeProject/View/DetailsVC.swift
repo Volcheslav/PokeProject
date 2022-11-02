@@ -37,7 +37,7 @@ final class DetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailsViewModel = DetailsViewModel()
+        //detailsViewModel = DetailsViewModel()
 
     }
 }
