@@ -22,6 +22,7 @@
 		CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */; };
 		CE7E65EF290B0C5700621DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EE290B0C5700621DB6 /* Assets.xcassets */; };
 		CE7E65F2290B0C5700621DB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */; };
+		CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE186332912BAEB0036B89F /* NetworkMonitor.swift */; };
 		CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3391290FC3FE00659C6E /* NetworkManager.swift */; };
 		CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */; };
 		CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */; };
@@ -53,6 +54,7 @@
 		CE7E65EE290B0C5700621DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7E65F1290B0C5700621DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7E65F3290B0C5700621DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEE186332912BAEB0036B89F /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		CEEA3391290FC3FE00659C6E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListMainModel.swift; sourceTree = "<group>"; };
 		CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */,
 				CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */,
 				CEEA33AE2911DF2E00659C6E /* DetailsNetworkModel.swift */,
+				CEE186332912BAEB0036B89F /* NetworkMonitor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				CEEA33AB2911DB4400659C6E /* DetailsVC.swift in Sources */,
 				CE7BA4762912B22100A9E613 /* RealmManager.swift in Sources */,
 				CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */,
+				CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */,
 				CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

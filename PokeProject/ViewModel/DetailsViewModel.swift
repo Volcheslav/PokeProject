@@ -14,20 +14,9 @@ class DetailsViewModel {
     var data: DetailsNetworkModel?
     
     var url: String?
+    var name: String?
     
     private var networkDataFetcher = NetworkDataFetcher()
-    
-    //    private func getDetails() {
-    //        guard let url = url else { return }
-    //        networkDataFetcher.fetchDetailsList(urlString: url) { (data) in
-    //            self.details?.name = data?.name
-    //            self.details?.height = data?.height
-    //            self.details?.weight = data?.weight
-    //            self.details?.sprites = data?.sprites.frontDefault
-    //            self.details?.types = data?.types.map { $0.type.name }
-    //            self.details?.id = data?.id
-    //        }
-    //    }
     
     private func getDetails() {
         guard let url = url else { return }
@@ -63,8 +52,22 @@ class DetailsViewModel {
         RealmManager.shared.saveUniq(id: details.id, model: model)
     }
     
-    init(url: String) {
+    func getDataFromRealm() {
+        guard let name = name,
+              let realmModel = RealmManager.shared.shareRealmData().filter({ $0.name == name }).first else { return }
+        self.details = DetailsModel(
+            height: realmModel.height,
+            id: realmModel.id,
+            name: realmModel.name,
+            sprites: realmModel.sprites,
+            types: realmModel.types,
+            weight: realmModel.weight)
+        
+    }
+    
+    init(url: String, name: String) {
         self.url = url
+        self.name = name
         self.getDetails()
     }
 }

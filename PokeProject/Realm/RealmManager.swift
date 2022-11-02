@@ -16,11 +16,15 @@ class RealmManager {
     
     let realm = try! Realm()
     
-    func savePokeModel(model: RealmPokeModel) {
+    private func savePokeModel(model: RealmPokeModel) {
         
         try! self.realm.write {
             self.realm.add(model)
         }
+    }
+    
+    func shareRealmData() -> [RealmPokeModel] {
+        return Array(realm.objects(RealmPokeModel.self))
     }
     
     private func findInRealm(id: String) -> Bool {
@@ -31,10 +35,9 @@ class RealmManager {
     func saveUniq(id: String, model: RealmPokeModel) {
         if findInRealm(id: id) {
             savePokeModel(model: model)
-            print ("SAVED")
         } else {
-            print ("EXIST")
             return
         }
     }
+    
 }

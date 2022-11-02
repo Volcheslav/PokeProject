@@ -109,30 +109,31 @@
                                 <rect key="frame" x="10" y="57" width="370" height="743"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aR-oo-nig">
-                                        <rect key="frame" x="152" y="0.0" width="66.333333333333314" height="57.666666666666664"/>
+                                        <rect key="frame" x="152" y="0.0" width="66.333333333333314" height="287"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-MI-7XD">
-                                        <rect key="frame" x="0.0" y="65.666666666666686" width="370" height="607.33333333333326"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosign.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-MI-7XD">
+                                        <rect key="frame" x="0.0" y="296.66666666666669" width="370" height="91.666666666666657"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kzK-5t-AgH">
-                                        <rect key="frame" x="185" y="681" width="0.0" height="30"/>
+                                        <rect key="frame" x="185" y="397.66666666666669" width="0.0" height="139.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1n-c8-AhS">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="36.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTN-Yj-tmQ">
-                                                <rect key="frame" x="0.0" y="15" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="51.333333333333314" width="0.0" height="36.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9p-vz-DOZ">
-                                                <rect key="frame" x="0.0" y="30" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="102.99999999999994" width="0.0" height="36.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -140,7 +141,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST8-hI-OfD">
-                                        <rect key="frame" x="143" y="719" width="84.333333333333314" height="24"/>
+                                        <rect key="frame" x="143" y="545.33333333333337" width="84.333333333333314" height="197.66666666666663"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Back">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
@@ -183,6 +184,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="nosign.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

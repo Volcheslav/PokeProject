@@ -50,16 +50,20 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     
     func viewModelForSelectedRow() -> DetailsViewModel? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return DetailsViewModel(url: names[selectedIndexPath.row].url)
+        return DetailsViewModel(url: names[selectedIndexPath.row].url, name: names[selectedIndexPath.row].name)
     }
     
     func selectRow(atIndexPath: IndexPath) {
         self.selectedIndexPath = atIndexPath
     }
     
+    func getFromRealm() {
+        let realm = RealmManager.shared.shareRealmData()
+        self.names = realm.map { NamesModel(name: $0.name, url: "no connection") }
+    }
+    
     override init() {
         super.init()
         self.fetchNames()
     }
-    
 }

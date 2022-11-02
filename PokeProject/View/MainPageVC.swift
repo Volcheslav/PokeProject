@@ -11,12 +11,7 @@ final class MainPageVC: UIViewController {
     
     private let cellID  = "nameCell"
     
-    var viewModel: MainPageViewModel? {
-        didSet {
-            guard let text = viewModel?.text else { return }
-            self.warningLabel.text = text
-        }
-    }
+    var viewModel: MainPageViewModel?
     
     @IBOutlet private weak var warningLabel: UILabel!
     
@@ -25,16 +20,19 @@ final class MainPageVC: UIViewController {
     }
     
     @IBAction private func leftSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
-        tableViewModel.goLeftPage()
-        DispatchQueue.main.async {
-            self.namesTableView.reloadData()
-        }
+        if NetworkMonitor.shared.isConnected == true {
+            tableViewModel.goLeftPage()
+            DispatchQueue.main.async {
+                self.namesTableView.reloadData()
+            }}
         
     }
     @IBAction private func rightSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
-        tableViewModel.goRightPage()
-        DispatchQueue.main.async {
-            self.namesTableView.reloadData()
+        if NetworkMonitor.shared.isConnected == true {
+            tableViewModel.goRightPage()
+            DispatchQueue.main.async {
+                self.namesTableView.reloadData()
+            }
         }
     }
     @IBOutlet private var tableViewModel: NamesTableViewModel!
@@ -46,13 +44,25 @@ final class MainPageVC: UIViewController {
         super.viewDidLoad()
         viewModel = MainPageViewModel()
         dissapearLabel()
+        NetworkMonitor.shared.startMonitoring()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if NetworkMonitor.shared.isConnected != true {
+            tableViewModel.getFromRealm()
+        }
+        
+        guard let text = viewModel?.returnText(isConnected: NetworkMonitor.shared.isConnected ?? false) else { return }
+        self.warningLabel.text = text
+        
         DispatchQueue.main.async {
             self.namesTableView.reloadData()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     private func dissapearLabel() {

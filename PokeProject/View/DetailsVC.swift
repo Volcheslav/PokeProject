@@ -26,8 +26,16 @@ final class DetailsVC: UIViewController {
     
     var detailsViewModel: DetailsViewModel?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NetworkMonitor.shared.startMonitoring()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if NetworkMonitor.shared.isConnected != true {
+            detailsViewModel?.getDataFromRealm()
+        }
         setLabeles()
     }
     
