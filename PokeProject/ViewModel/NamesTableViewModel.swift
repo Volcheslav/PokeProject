@@ -3,7 +3,6 @@
 //  PokeProject
 //
 //  Created by User on 28.10.22.
-//
 
 import Foundation
 
@@ -11,7 +10,7 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     
     private var selectedIndexPath: IndexPath?
     var networkDataFetcher = NetworkDataFetcher()
-    let url = "https://pokeapi.co/api/v2/pokemon"
+    let url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
     var nextURl: String?
     var prevURL: String?
     

@@ -91,7 +91,11 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let tableViewModel = tableViewModel else { return }
         tableViewModel.selectRow(atIndexPath: indexPath)
-        
         performSegue(withIdentifier: "detailsSegue", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = tableView.frame.height / 10
+        return height
     }
 }

@@ -114,7 +114,6 @@
 				CE47BB9A290C075200F5956E /* MainPageVC.swift */,
 				CE47BBA5290C0F6400F5956E /* NamesTableViewCell.swift */,
 				CEEA33AA2911DB4400659C6E /* DetailsVC.swift */,
-				CE47BBA3290C0DE900F5956E /* Protocols */,
 				CEEA33A72911DA7F00659C6E /* Storyboards */,
 			);
 			path = View;
@@ -155,6 +154,7 @@
 				CEEA33A62911D9FA00659C6E /* Network */,
 				CE47BBA7290C12BE00F5956E /* ViewModel */,
 				CE47BBA4290C0E1400F5956E /* View */,
+				CE47BBA3290C0DE900F5956E /* Protocols */,
 				CE47BBA2290C0DC600F5956E /* Model */,
 				CE7E65E5290B0C5500621DB6 /* AppDelegate.swift */,
 				CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */,
@@ -474,7 +474,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +504,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
