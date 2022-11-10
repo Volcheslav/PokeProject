@@ -29,6 +29,7 @@ final class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkMonitor.shared.startMonitoring()
+        setLoadingLabels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,10 +44,19 @@ final class DetailsVC: UIViewController {
         guard let detailsVM = detailsViewModel, let details = detailsVM.details else { return }
         DispatchQueue.main.async {
             self.nameLabel.text = "\(details.name.capitalized)"
-            self.heightLabel.text = "Height: \(details.height) cm"
-            self.weightLabel.text = "Weight: \(details.weight) g"
-            self.typesLabel.text = "Types: \(details.types)"
+            self.heightLabel.text = "\(("HEIGHT")§) \(details.height) \(("CM")§)"
+            self.weightLabel.text = "\(("WEIGHT")§) \(details.weight) \(("GR")§)"
+            self.typesLabel.text = "\(("TYPES")§) \(details.types)"
             self.pokeImage.loadFrom(URLAddress: details.sprites)
+            self.pokeImage.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+            self.pokeImage.clipsToBounds = true
         }
+    }
+    
+    private func setLoadingLabels() {
+        nameLabel.text = ("LOADING")§
+        typesLabel.text = ("LOADING")§
+        weightLabel.text = ("LOADING")§
+        heightLabel.text = ("LOADING")§
     }
 }

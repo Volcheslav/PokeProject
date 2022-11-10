@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LmE-1p-Q3t"; */
+"LmE-1p-Q3t.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "NyY-wA-fpi"; */
+"NyY-wA-fpi.text" = "Title";
+
+/* Class = "UIButton"; configuration.title = "Back"; ObjectID = "ST8-hI-OfD"; */
+"ST8-hI-OfD.configuration.title" = "Назад";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ST8-hI-OfD"; */
+"ST8-hI-OfD.normalTitle" = "Button";
