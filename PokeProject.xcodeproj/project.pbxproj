@@ -144,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				CE47BB9A290C075200F5956E /* NamesListVC.swift */,
-				CE47BBA5290C0F6400F5956E /* NamesListTableViewCell.swift */,
 				CEEA33AA2911DB4400659C6E /* DetailsVC.swift */,
+				CE47BBA5290C0F6400F5956E /* NamesListTableViewCell.swift */,
 				CEEA33A72911DA7F00659C6E /* Storyboards */,
 			);
 			path = View;

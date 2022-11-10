@@ -9,41 +9,41 @@ import UIKit
 
 final class NamesListVC: UIViewController {
     
+    // MARK: - Constants
+    
     private let cellID  = "nameCell"
     
-    var viewModel: NamesListViewModel?
+    // MARK: - Outlets
+    // MARK: Interface elements
     
-    @IBOutlet private weak var warningLabel: UILabel!
-    
-    @IBAction private func goMainScreen(_ sender: UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction private func leftSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
-        if NetworkMonitor.shared.isConnected == true {
-            tableViewModel.goLeftPage()
-            DispatchQueue.main.async {
-                self.namesTableView.reloadData()
-            }}
-        
-    }
-    @IBAction private func rightSwipeUpdate(_ sender: UISwipeGestureRecognizer) {
-        if NetworkMonitor.shared.isConnected == true {
-            tableViewModel.goRightPage()
-            DispatchQueue.main.async {
-                self.namesTableView.reloadData()
-            }
-        }
-    }
-    @IBOutlet private var tableViewModel: NamesListTableViewModel!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var namesTableView: UITableView!
     
+    // MARK: View Models
+    
+    @IBOutlet private weak var tableViewModel: NamesListTableViewModel!
+    
+    // MARK: - Actions
+    
+    @IBAction private func goLeftOnListAction(_ sender: UIButton) {
+        changePage(changeFunc: tableViewModel.goLeftPage)
+    }
+    
+    @IBAction private func goRightOnListAction(_ sender: UIButton) {
+        changePage(changeFunc: tableViewModel.goRightPage)
+    }
+    
+    // MARK: Unwined segue
+    
+    @IBAction private func goMainScreen(_ sender: UIStoryboardSegue) {
+    }
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = NamesListViewModel()
-        dissapearLabel()
+        setInterface()
         NetworkMonitor.shared.startMonitoring()
     }
     
@@ -52,9 +52,6 @@ final class NamesListVC: UIViewController {
         if NetworkMonitor.shared.isConnected != true {
             tableViewModel.getFromRealm()
         }
-        
-        guard let text = viewModel?.returnText(isConnected: NetworkMonitor.shared.isConnected ?? false) else { return }
-        self.warningLabel.text = text
         
         DispatchQueue.main.async {
             self.namesTableView.reloadData()
@@ -65,12 +62,7 @@ final class NamesListVC: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    private func dissapearLabel() {
-        let when = DispatchTime.now() + 3
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            self.warningLabel.isHidden = true
-        }
-    }
+    // MARK: - Prepare segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier, let tableViewModel = tableViewModel else { return }
@@ -81,7 +73,26 @@ final class NamesListVC: UIViewController {
         }
     }
     
+    // MARK: - Paging function
+    
+    private func changePage(changeFunc: @escaping () -> Void) {
+        if NetworkMonitor.shared.isConnected == true {
+            changeFunc()
+            DispatchQueue.main.async {
+                self.namesTableView.reloadData()
+            }
+        }
+    }
+    
+    // MARK: - Set interface function
+    
+    private func setInterface() {
+        backButton.setTitle(("BACK_PAGE")§, for: .normal)
+        nextButton.setTitle(("NEXT_PAGE")§, for: .normal)
+    }
 }
+
+// MARK: - TableView Extensions
 
 extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

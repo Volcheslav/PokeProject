@@ -53,10 +53,9 @@ final class DetailsVC: UIViewController {
     
     private func setLoadingLabels() {
         nameLabel.text = ("LOADING")§
-        typesLabel.text = ("LOADING")§
-        weightLabel.text = ("LOADING")§
-        heightLabel.text = ("LOADING")§
+        typesLabel.text = "\(("TYPES")§) \(("LOADING")§)"
+        weightLabel.text = "\(("WEIGHT")§) \(("LOADING")§)"
+        heightLabel.text = "\(("HEIGHT")§) \(("LOADING")§)"
         backButton.setTitle(("BACK")§, for: .normal)
-        backButton.titleLabel?.font = UIFont(name: "Arial", size: 35)
     }
 }

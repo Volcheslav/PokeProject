@@ -9,6 +9,8 @@
  // MARK: - NamesList Screen
 
 "NO_CONNECTOIN" = "No connection";
+"NEXT_PAGE" = "Next page";
+"BACK_PAGE" = "Prev. page";
 
 // MARK: - Details Screen
 
@@ -20,3 +22,5 @@
 "CM" = "cm";
 "GR" = "g";
 "BACK" = "Back";
+
+

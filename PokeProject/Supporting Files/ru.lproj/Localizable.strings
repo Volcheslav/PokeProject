@@ -8,6 +8,8 @@
 // MARK: - NamesList Screen
 
 "NO_CONNECTOIN" = "Нет соединения с сетью";
+"NEXT_PAGE" = "Следующий список";
+"BACK_PAGE" = "Предыдущий список";
 
 // MARK: - Details Screen
 
