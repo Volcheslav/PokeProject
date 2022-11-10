@@ -9,13 +9,20 @@ import Foundation
 class NamesListTableViewModel: NSObject, TableViewModelType {
     
     private var selectedIndexPath: IndexPath?
-    var networkDataFetcher = NetworkDataFetcher()
     let url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
+    let offlineURLPlaceholder = "no connection"
     var nextURl: String?
     var prevURL: String?
-    
+    var names: [NamesListModel] = []
     var numberOfRows: Int {
         return names.count
+    }
+    
+    // MARK: - Init
+    
+    override init() {
+        super.init()
+        self.fetchNames()
     }
     
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
@@ -23,13 +30,12 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
         return NamesListTableViewCellViewModel(nameModel: name)
     }
     
-    var names: [NamesListModel] = []
-        
     private func fetchNames() {
         initTableData(url: self.url)
     }
     
-    func initTableData(url: String) {
+    private func initTableData(url: String) {
+        let networkDataFetcher = NetworkDataFetcher()
         networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
             self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
@@ -59,11 +65,6 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     
     func getFromRealm() {
         let realm = RealmManager.shared.shareRealmData()
-        self.names = realm.map { NamesListModel(name: $0.name, url: "no connection") }
-    }
-    
-    override init() {
-        super.init()
-        self.fetchNames()
+        self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
     }
 }

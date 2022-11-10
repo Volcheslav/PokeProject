@@ -11,7 +11,16 @@ final class NamesListVC: UIViewController {
     
     // MARK: - Constants
     
-    private let cellID  = "nameCell"
+    private let cellsOnView: CGFloat = 10
+    
+    // MARK: Strings enum
+    
+    private enum NamesListVCStrings: String {
+        case cellID = "nameCell"
+        case segueID = "detailsSegue"
+        case backButton = "BACK_PAGE"
+        case nextButton = "NEXT_PAGE"
+    }
     
     // MARK: - Outlets
     // MARK: Interface elements
@@ -58,15 +67,11 @@ final class NamesListVC: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     // MARK: - Prepare segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier, let tableViewModel = tableViewModel else { return }
-        if id == "detailsSegue" {
+        if id == NamesListVCStrings.segueID.rawValue {
             if let dvc = segue.destination as? DetailsVC {
                 dvc.detailsViewModel = tableViewModel.viewModelForSelectedRow()
             }
@@ -87,8 +92,8 @@ final class NamesListVC: UIViewController {
     // MARK: - Set interface function
     
     private func setInterface() {
-        backButton.setTitle(("BACK_PAGE")§, for: .normal)
-        nextButton.setTitle(("NEXT_PAGE")§, for: .normal)
+        backButton.setTitle((NamesListVCStrings.backButton.rawValue)§, for: .normal)
+        nextButton.setTitle((NamesListVCStrings.nextButton.rawValue)§, for: .normal)
         namesTableView.isScrollEnabled = false
     }
     
@@ -110,7 +115,7 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID
+        let cell = tableView.dequeueReusableCell(withIdentifier: NamesListVCStrings.cellID.rawValue
                                                  , for: indexPath) as? NamesListTableViewCell
         guard let tableViewCell = cell else { return .init()}
         let cellViewModel = tableViewModel?.cellViewModel(indexPath: indexPath)
@@ -122,11 +127,11 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let tableViewModel = tableViewModel else { return }
         tableViewModel.selectRow(atIndexPath: indexPath)
-        performSegue(withIdentifier: "detailsSegue", sender: nil)
+        performSegue(withIdentifier: NamesListVCStrings.segueID.rawValue, sender: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = tableView.frame.height / 10
+        let height = tableView.frame.height / cellsOnView
         return height
     }
 }

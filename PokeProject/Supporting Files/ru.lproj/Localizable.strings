@@ -10,6 +10,9 @@
 "NO_CONNECTOIN" = "Нет соединения с сетью";
 "NEXT_PAGE" = "Следующий список";
 "BACK_PAGE" = "Предыдущий список";
+"OFFLINE_ALERT_TITLE" = "Локальный режим";
+"OFFLINE_ALERT_MESSAGE" = "В локальном режиме вы можете пролистывать список сохраненных покемонов";
+"OFFLINE_ALERT_OK" = "OK";
 
 // MARK: - Details Screen
 
