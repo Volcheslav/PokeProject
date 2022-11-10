@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  PokeProject
+
+  Created by User on 10.11.22.
+  
+*/
+// MARK: - NamesList Screen
+
+"NO_CONNECTOIN" = "Нет соединения с сетью";
+
+// MARK: - Details Screen
+
+"LOADING" = "Загрузка..";
+"NAME" = "Имя";
+"TYPES" = "Типы: ";
+"WEIGHT" = "Вес: ";
+"HEIGHT" = "Рост: ";
+"CM" = "см";
+"GR" = "гр";
+"BACK" = "Назад";

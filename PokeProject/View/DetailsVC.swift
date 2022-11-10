@@ -48,8 +48,6 @@ final class DetailsVC: UIViewController {
             self.weightLabel.text = "\(("WEIGHT")§) \(details.weight) \(("GR")§)"
             self.typesLabel.text = "\(("TYPES")§) \(details.types)"
             self.pokeImage.loadFrom(URLAddress: details.sprites)
-            self.pokeImage.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-            self.pokeImage.clipsToBounds = true
         }
     }
     
@@ -58,5 +56,7 @@ final class DetailsVC: UIViewController {
         typesLabel.text = ("LOADING")§
         weightLabel.text = ("LOADING")§
         heightLabel.text = ("LOADING")§
+        backButton.setTitle(("BACK")§, for: .normal)
+        backButton.titleLabel?.font = UIFont(name: "Arial", size: 35)
     }
 }
