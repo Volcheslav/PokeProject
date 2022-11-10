@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NamesModel {
+struct NamesListModel {
     var name: String
     var url: String
 }

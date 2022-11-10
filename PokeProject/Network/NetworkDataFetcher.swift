@@ -11,10 +11,6 @@ class NetworkDataFetcher {
     
     var networkManager = NetworkManager()
     
-    init(networkManager: NetworkManager = NetworkManager()) {
-        self.networkManager = networkManager
-    }
-    
     func fetchDetailsList(urlString: String, completion: @escaping (DetailsNetworkModel?) -> Void) {
         fetchGenericData(urlString: urlString, completion: completion)
         }

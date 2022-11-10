@@ -7,10 +7,10 @@
 
 import UIKit
 
-class NamesTableViewCell: UITableViewCell {
+class NamesListTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var nameLabel: UILabel!
-    weak var viewModel: NamesTableViewCellViewModel? {
+    weak var viewModel: NamesListTableViewCellViewModel? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
         

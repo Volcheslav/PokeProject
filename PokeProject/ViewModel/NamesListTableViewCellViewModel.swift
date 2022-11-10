@@ -7,15 +7,15 @@
 
 import Foundation
 
-class NamesTableViewCellViewModel: TableViewCellViewModelType {
+class NamesListTableViewCellViewModel: TableViewCellViewModelType {
     
-    private var nameModel: NamesModel
+    private var nameModel: NamesListModel
     
     var name: String {
         return nameModel.name
     }
     
-    init(nameModel: NamesModel) {
+    init(nameModel: NamesListModel) {
         self.nameModel = nameModel
     }
 }

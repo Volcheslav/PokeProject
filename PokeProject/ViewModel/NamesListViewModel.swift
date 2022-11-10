@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MainPageViewModel {
+class NamesListViewModel {
     
     private var warningText = "Swipe left and right to change list"
     private var connectionText = "No connection"

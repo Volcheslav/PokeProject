@@ -6,7 +6,7 @@
 
 import Foundation
 
-class NamesTableViewModel: NSObject, TableViewModelType {
+class NamesListTableViewModel: NSObject, TableViewModelType {
     
     private var selectedIndexPath: IndexPath?
     var networkDataFetcher = NetworkDataFetcher()
@@ -20,10 +20,10 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
         let name = names[indexPath.row]
-        return NamesTableViewCellViewModel(nameModel: name)
+        return NamesListTableViewCellViewModel(nameModel: name)
     }
     
-    var names: [NamesModel] = []
+    var names: [NamesListModel] = []
         
     private func fetchNames() {
         initTableData(url: self.url)
@@ -32,7 +32,7 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     func initTableData(url: String) {
         networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
-            self.names = data.results.map { NamesModel(name: $0.name, url: $0.url) }
+            self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
             self.prevURL = data.previous
             self.nextURl = data.next
         }
@@ -59,7 +59,7 @@ class NamesTableViewModel: NSObject, TableViewModelType {
     
     func getFromRealm() {
         let realm = RealmManager.shared.shareRealmData()
-        self.names = realm.map { NamesModel(name: $0.name, url: "no connection") }
+        self.names = realm.map { NamesListModel(name: $0.name, url: "no connection") }
     }
     
     override init() {
