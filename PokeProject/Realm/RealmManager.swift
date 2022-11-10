@@ -10,26 +10,18 @@ import RealmSwift
 
 class RealmManager {
     
+    let realm = try! Realm()
+    
     static let shared = RealmManager()
+    
+    // MARK: - Init
     
     private init() {}
     
-    let realm = try! Realm()
-    
-    private func savePokeModel(model: RealmPokeModel) {
-        
-        try! self.realm.write {
-            self.realm.add(model)
-        }
-    }
+    // MARK: - Share and save public
     
     func shareRealmData() -> [RealmPokeModel] {
         return Array(realm.objects(RealmPokeModel.self))
-    }
-    
-    private func findInRealm(id: String) -> Bool {
-        let pokeModels = realm.objects(RealmPokeModel.self)
-        return pokeModels.filter { $0.id == id }.isEmpty
     }
     
     func saveUniq(id: String, model: RealmPokeModel) {
@@ -40,4 +32,17 @@ class RealmManager {
         }
     }
     
+    // MARK: - Save and find functions
+    
+    private func savePokeModel(model: RealmPokeModel) {
+        
+        try! self.realm.write {
+            self.realm.add(model)
+        }
+    }
+    
+    private func findInRealm(id: String) -> Bool {
+        let pokeModels = realm.objects(RealmPokeModel.self)
+        return pokeModels.filter { $0.id == id }.isEmpty
+    }
 }

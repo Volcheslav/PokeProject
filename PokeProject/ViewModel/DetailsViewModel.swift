@@ -9,17 +9,36 @@ import Foundation
 
 class DetailsViewModel {
     
-    var details: DetailsModel?
+    // MARK: - ViewModels
     
-    var data: DetailsNetworkModel?
+    private var details: DetailsModel?
+    private var data: DetailsNetworkModel?
     
-    var url: String?
-    var name: String?
+    // MARK: - Variables
     
-    private var networkDataFetcher = NetworkDataFetcher()
+    private var url: String?
+    private var name: String?
+    
+    // MARK: - Init function
+    
+    init(url: String, name: String) {
+           self.url = url
+           self.name = name
+           self.getDetails()
+       }
+    
+    // MARK: Share details
+    
+    func shareDetails() -> DetailsModel? {
+        guard let details = details else { return nil }
+        return details
+    }
+    
+    // MARK: - Details model load functions
     
     private func getDetails() {
         guard let url = url else { return }
+        let networkDataFetcher = NetworkDataFetcher()
         networkDataFetcher.fetchDetailsList(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
             self.data = data
@@ -40,6 +59,8 @@ class DetailsViewModel {
             self.saveToRealm(details: self.details!)
         }
     }
+    
+    // MARK: - Realm functions
     
     private func saveToRealm(details: DetailsModel) {
         let model = RealmPokeModel()
@@ -62,12 +83,5 @@ class DetailsViewModel {
             sprites: realmModel.sprites,
             types: realmModel.types,
             weight: realmModel.weight)
-        
-    }
-    
-    init(url: String, name: String) {
-        self.url = url
-        self.name = name
-        self.getDetails()
     }
 }

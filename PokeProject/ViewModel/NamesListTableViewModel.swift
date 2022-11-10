@@ -8,35 +8,30 @@ import Foundation
 
 class NamesListTableViewModel: NSObject, TableViewModelType {
     
+    // MARK: - Constants
+    
+    private let url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
+    private let offlineURLPlaceholder = "no connection"
+    
+    // MARK: - Variables
+    
     private var selectedIndexPath: IndexPath?
-    var networkDataFetcher = NetworkDataFetcher()
-    let url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
-    var nextURl: String?
-    var prevURL: String?
+    private var nextURl: String?
+    private var prevURL: String?
+    private var names: [NamesListModel] = []
     
     var numberOfRows: Int {
         return names.count
     }
     
-    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
-        let name = names[indexPath.row]
-        return NamesListTableViewCellViewModel(nameModel: name)
+    // MARK: - Init
+    
+    override init() {
+        super.init()
+        self.fetchNames()
     }
     
-    var names: [NamesListModel] = []
-        
-    private func fetchNames() {
-        initTableData(url: self.url)
-    }
-    
-    func initTableData(url: String) {
-        networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
-            guard let self = self, let data = data else { return }
-            self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
-            self.prevURL = data.previous
-            self.nextURl = data.next
-        }
-    }
+    // MARK: - List change functions
     
     func goRightPage() {
         guard let url = nextURl else { return }
@@ -48,22 +43,42 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
         initTableData(url: url)
     }
     
+    // MARK: - View models return functions
+    
     func viewModelForSelectedRow() -> DetailsViewModel? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
         return DetailsViewModel(url: names[selectedIndexPath.row].url, name: names[selectedIndexPath.row].name)
     }
     
+    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
+        let name = names[indexPath.row]
+        return NamesListTableViewCellViewModel(nameModel: name)
+    }
+    
+    // MARK: - Realm functions
+    
+    func getFromRealm() {
+        let realm = RealmManager.shared.shareRealmData()
+        self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
+    }
+    
+    // MARK: - Table functions
+    
     func selectRow(atIndexPath: IndexPath) {
         self.selectedIndexPath = atIndexPath
     }
     
-    func getFromRealm() {
-        let realm = RealmManager.shared.shareRealmData()
-        self.names = realm.map { NamesListModel(name: $0.name, url: "no connection") }
+    private func initTableData(url: String) {
+        let networkDataFetcher = NetworkDataFetcher()
+        networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
+            guard let self = self, let data = data else { return }
+            self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
+            self.prevURL = data.previous
+            self.nextURl = data.next
+        }
     }
     
-    override init() {
-        super.init()
-        self.fetchNames()
+    private func fetchNames() {
+        initTableData(url: self.url)
     }
 }
