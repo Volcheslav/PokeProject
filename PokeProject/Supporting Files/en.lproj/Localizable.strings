@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  PokeProject
+
+  Created by User on 10.11.22.
+  
+*/
+
+ // MARK: - NamesList Screen
+
+"NO_CONNECTOIN" = "No connection";
+"NEXT_PAGE" = "Next page";
+"BACK_PAGE" = "Prev. page";
+
+// MARK: - Details Screen
+
+"LOADING" = "Loading...";
+"NAME" = "Name";
+"TYPES" = "Types: ";
+"WEIGHT" = "Weight: ";
+"HEIGHT" = "Height: ";
+"CM" = "cm";
+"GR" = "g";
+"BACK" = "Back";
+
+
