@@ -50,7 +50,7 @@ final class NamesListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if NetworkMonitor.shared.isConnected != true {
-            tableViewModel.getFromRealm()
+           setOfflineInterface()
         }
         
         DispatchQueue.main.async {
@@ -89,6 +89,16 @@ final class NamesListVC: UIViewController {
     private func setInterface() {
         backButton.setTitle(("BACK_PAGE")§, for: .normal)
         nextButton.setTitle(("NEXT_PAGE")§, for: .normal)
+        namesTableView.isScrollEnabled = false
+    }
+    
+    // MARK: Set interface in offline mode
+    
+    private func setOfflineInterface() {
+        tableViewModel.getFromRealm()
+        namesTableView.isScrollEnabled = true
+        backButton.isHidden = true
+        nextButton.isHidden = true
     }
 }
 
