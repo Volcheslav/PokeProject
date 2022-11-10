@@ -8,12 +8,18 @@ import Foundation
 
 class NamesListTableViewModel: NSObject, TableViewModelType {
     
+    // MARK: - Constants
+    
+    private let url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
+    private let offlineURLPlaceholder = "no connection"
+    
+    // MARK: - Variables
+    
     private var selectedIndexPath: IndexPath?
-    let url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10"
-    let offlineURLPlaceholder = "no connection"
-    var nextURl: String?
-    var prevURL: String?
-    var names: [NamesListModel] = []
+    private var nextURl: String?
+    private var prevURL: String?
+    private var names: [NamesListModel] = []
+    
     var numberOfRows: Int {
         return names.count
     }
@@ -25,13 +31,41 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
         self.fetchNames()
     }
     
+    // MARK: - List change functions
+    
+    func goRightPage() {
+        guard let url = nextURl else { return }
+        initTableData(url: url)
+    }
+    
+    func goLeftPage() {
+        guard let url = prevURL else { return }
+        initTableData(url: url)
+    }
+    
+    // MARK: - View models return functions
+    
+    func viewModelForSelectedRow() -> DetailsViewModel? {
+        guard let selectedIndexPath = selectedIndexPath else { return nil }
+        return DetailsViewModel(url: names[selectedIndexPath.row].url, name: names[selectedIndexPath.row].name)
+    }
+    
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
         let name = names[indexPath.row]
         return NamesListTableViewCellViewModel(nameModel: name)
     }
     
-    private func fetchNames() {
-        initTableData(url: self.url)
+    // MARK: - Realm functions
+    
+    func getFromRealm() {
+        let realm = RealmManager.shared.shareRealmData()
+        self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
+    }
+    
+    // MARK: - Table functions
+    
+    func selectRow(atIndexPath: IndexPath) {
+        self.selectedIndexPath = atIndexPath
     }
     
     private func initTableData(url: String) {
@@ -44,27 +78,7 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
         }
     }
     
-    func goRightPage() {
-        guard let url = nextURl else { return }
-        initTableData(url: url)
-    }
-    
-    func goLeftPage() {
-        guard let url = prevURL else { return }
-        initTableData(url: url)
-    }
-    
-    func viewModelForSelectedRow() -> DetailsViewModel? {
-        guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return DetailsViewModel(url: names[selectedIndexPath.row].url, name: names[selectedIndexPath.row].name)
-    }
-    
-    func selectRow(atIndexPath: IndexPath) {
-        self.selectedIndexPath = atIndexPath
-    }
-    
-    func getFromRealm() {
-        let realm = RealmManager.shared.shareRealmData()
-        self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
+    private func fetchNames() {
+        initTableData(url: self.url)
     }
 }
