@@ -15,6 +15,7 @@ Test project
 - In offline mode buttons are hidden and table scrolling is avalible, and tableView can show more than 10 pokemons
 - English and Russian localizations
 - Custom icons
+- Postfix operator "§" added for localizing strings
 
 ## Tech Stack
 
