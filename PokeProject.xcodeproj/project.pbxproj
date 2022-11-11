@@ -34,6 +34,7 @@
 		CEEA33AF2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */; };
 		CEEA33B12911E81800659C6E /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33B02911E81800659C6E /* DetailsModel.swift */; };
 		CEEA33B32912913100659C6E /* UIIamgeViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */; };
+		CEEF12A4291EA0950098C8DE /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */; };
 		CEF00369291E84A2000973B3 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */; };
 		CEF0036B291E8C26000973B3 /* NetworkDataGeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */; };
 		CEF0036D291E8C7E000973B3 /* DataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */; };
@@ -75,6 +76,7 @@
 		CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsNetworkModel.swift; sourceTree = "<group>"; };
 		CEEA33B02911E81800659C6E /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIamgeViewExtension.swift; sourceTree = "<group>"; };
+		CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 		CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataGeter.swift; sourceTree = "<group>"; };
 		CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherProtocol.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */,
 				CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */,
 				CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */,
+				CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -219,11 +222,10 @@
 		CEEA33A62911D9FA00659C6E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CEEF12A2291EA01C0098C8DE /* NetworkModels */,
 				CEEA3391290FC3FE00659C6E /* NetworkManager.swift */,
 				CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */,
 				CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */,
-				CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */,
-				CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */,
 				CEE186332912BAEB0036B89F /* NetworkMonitor.swift */,
 			);
 			path = Network;
@@ -236,6 +238,15 @@
 				CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CEEF12A2291EA01C0098C8DE /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */,
+				CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */,
+			);
+			path = NetworkModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +410,7 @@
 				CE7BA4762912B22100A9E613 /* RealmManager.swift in Sources */,
 				CEF0036B291E8C26000973B3 /* NetworkDataGeter.swift in Sources */,
 				CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */,
+				CEEF12A4291EA0950098C8DE /* RealmManagerProtocol.swift in Sources */,
 				CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */,
 				CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */,
 			);

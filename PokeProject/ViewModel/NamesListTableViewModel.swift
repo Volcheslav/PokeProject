@@ -30,6 +30,7 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     
     override init() {
         super.init()
+        self.networkDataGeter = NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager()))
         self.fetchNames()
     }
     
