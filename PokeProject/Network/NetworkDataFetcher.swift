@@ -26,7 +26,7 @@ class NetworkDataFetcher: DataFetcherProtocol {
             var errorMessage: String?
             if data == nil {
                 let resp = response as? HTTPURLResponse
-                errorMessage = "\((Messages.noData.rawValue)§) \n \((Messages.code.rawValue)) \(resp?.statusCode ?? 0) \n \((Messages.error.rawValue)§) \(error?.localizedDescription ?? "")"
+                errorMessage = "\((Messages.noData.rawValue)§)\n\((Messages.code.rawValue)§) \(resp?.statusCode ?? 0)\n\((Messages.error.rawValue)§) \(error?.localizedDescription ?? "")\n"
             }
             
             let decoded = self.decodeJson(type: T.self, from: data)
