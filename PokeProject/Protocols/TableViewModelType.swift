@@ -9,6 +9,7 @@ import Foundation
 
 protocol TableViewModelType {
     var numberOfRows: Int { get }
+   // var networkDataGeter: DataGeterProtocol? { get set }
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType?
     
     func viewModelForSelectedRow() -> DetailsViewModel?

@@ -12,18 +12,20 @@ class DetailsViewModel {
     // MARK: - ViewModels
     
     private var details: DetailsModel?
-    private var data: DetailsNetworkModel?
+    private var data: PokemonDetailsNetworkModel?
     
     // MARK: - Variables
     
     private var url: String?
     private var name: String?
+    private var networkDataGeter: DataGeterProtocol
     
     // MARK: - Init function
     
-    init(url: String, name: String) {
+    init(url: String, name: String, networkDataGeter: DataGeterProtocol) {
            self.url = url
            self.name = name
+           self.networkDataGeter = networkDataGeter
            self.getDetails()
        }
     
@@ -38,8 +40,7 @@ class DetailsViewModel {
     
     private func getDetails() {
         guard let url = url else { return }
-        let networkDataFetcher = NetworkDataFetcher()
-        networkDataFetcher.fetchDetailsList(urlString: url) { [weak self] (data) in
+        networkDataGeter.fetchDetailsList(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
             self.data = data
             self.setDetails()

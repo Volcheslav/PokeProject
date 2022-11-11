@@ -1,6 +1,7 @@
 import Foundation
 
-class NetworkManager {
+class NetworkManager: DataManagerProtocol {
+    
     let sem = DispatchSemaphore.init(value: 0)
     func request(urlString: String, completion: @escaping (Data?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }

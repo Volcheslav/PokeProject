@@ -7,19 +7,15 @@
 
 import Foundation
 
-class NetworkDataFetcher {
+class NetworkDataFetcher: DataFetcherProtocol {
     
-    var networkManager = NetworkManager()
+    private var networkManager: DataManagerProtocol
     
-    func fetchDetailsList(urlString: String, completion: @escaping (DetailsNetworkModel?) -> Void) {
-        fetchGenericData(urlString: urlString, completion: completion)
-        }
+    init(networkManager: DataManagerProtocol) {
+        self.networkManager = networkManager
+    }
     
-    func fetchNamesList(urlString: String, completion: @escaping (NamesListMainModel?) -> Void) {
-        fetchGenericData(urlString: urlString, completion: completion)
-        }
-    
-   private func fetchGenericData<T: Codable>(urlString: String, completion: @escaping (T?) -> Void) {
+    func fetchData<T: Codable>(urlString: String, completion: @escaping (T?) -> Void) {
         networkManager.request(urlString: urlString) { (data, error) in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")

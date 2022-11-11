@@ -20,6 +20,8 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     private var prevURL: String?
     private var names: [NamesListModel] = []
     
+    var networkDataGeter: DataGeterProtocol?
+    
     var numberOfRows: Int {
         return names.count
     }
@@ -47,7 +49,10 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     
     func viewModelForSelectedRow() -> DetailsViewModel? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return DetailsViewModel(url: names[selectedIndexPath.row].url, name: names[selectedIndexPath.row].name)
+        return DetailsViewModel(
+            url: names[selectedIndexPath.row].url,
+            name: names[selectedIndexPath.row].name,
+            networkDataGeter: NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager())))
     }
     
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
@@ -69,8 +74,8 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     }
     
     private func initTableData(url: String) {
-        let networkDataFetcher = NetworkDataFetcher()
-        networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
+        guard let networkDataGeter = networkDataGeter else { return }
+        networkDataGeter.fetchNamesList(urlString: url) { [weak self] (data) in
             guard let self = self, let data = data else { return }
             self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
             self.prevURL = data.previous
