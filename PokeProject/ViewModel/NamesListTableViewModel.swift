@@ -23,6 +23,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     private var prevURL: String?
     private var names: [NamesListModel] = []
     
+    var errorMessage: String?
     var numberOfRows: Int {
         return names.count
     }
@@ -80,8 +81,11 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     
     private func initTableData(url: String) {
         guard let networkDataGeter = networkDataGeter else { return }
-        networkDataGeter.fetchNamesList(urlString: url) { [weak self] (data) in
-            guard let self = self, let data = data else { return }
+        networkDataGeter.fetchNamesList(urlString: url) { [weak self] (data, errorMessage) in
+            guard let self = self, let data = data else {
+                self?.errorMessage = errorMessage
+                return
+            }
             self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
             self.prevURL = data.previous
             self.nextURl = data.next

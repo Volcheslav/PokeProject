@@ -35,7 +35,7 @@
 		CEEA33B12911E81800659C6E /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33B02911E81800659C6E /* DetailsModel.swift */; };
 		CEEA33B32912913100659C6E /* UIIamgeViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */; };
 		CEEF12A4291EA0950098C8DE /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */; };
-		CEF00369291E84A2000973B3 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */; };
+		CEF00369291E84A2000973B3 /* NetworkDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF00368291E84A2000973B3 /* NetworkDataManagerProtocol.swift */; };
 		CEF0036B291E8C26000973B3 /* NetworkDataGeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */; };
 		CEF0036D291E8C7E000973B3 /* DataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */; };
 		CEF0036F291E8DD4000973B3 /* DataGeterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */; };
@@ -77,7 +77,7 @@
 		CEEA33B02911E81800659C6E /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIamgeViewExtension.swift; sourceTree = "<group>"; };
 		CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
-		CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		CEF00368291E84A2000973B3 /* NetworkDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataManagerProtocol.swift; sourceTree = "<group>"; };
 		CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataGeter.swift; sourceTree = "<group>"; };
 		CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherProtocol.swift; sourceTree = "<group>"; };
 		CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGeterProtocol.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */,
 				CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */,
-				CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */,
+				CEF00368291E84A2000973B3 /* NetworkDataManagerProtocol.swift */,
 				CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */,
 				CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */,
 				CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */,
@@ -400,7 +400,7 @@
 				CEF0036D291E8C7E000973B3 /* DataFetcherProtocol.swift in Sources */,
 				CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */,
 				CE7E65E6290B0C5500621DB6 /* AppDelegate.swift in Sources */,
-				CEF00369291E84A2000973B3 /* DataManagerProtocol.swift in Sources */,
+				CEF00369291E84A2000973B3 /* NetworkDataManagerProtocol.swift in Sources */,
 				CE47BBA6290C0F6400F5956E /* NamesListTableViewCell.swift in Sources */,
 				CE47BBA9290C12E800F5956E /* NamesListTableViewCellViewModel.swift in Sources */,
 				CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */,

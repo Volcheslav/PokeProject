@@ -20,6 +20,7 @@ class DetailsViewModel {
     
     private var url: String?
     private var name: String?
+    private var errorMessage: String?
     private var networkDataGeter: DataGeterProtocol
     
     // MARK: - Init function
@@ -42,9 +43,12 @@ class DetailsViewModel {
     // MARK: - Details model load functions
     
     private func getDetails() {
-        guard let url = url else { return }
-        networkDataGeter.fetchDetailsList(urlString: url) { [weak self] (data) in
-            guard let self = self, let data = data else { return }
+        guard let url = url else { return } 
+        networkDataGeter.fetchDetailsList(urlString: url) { [weak self] (data, errorMessage) in
+            guard let self = self, let data = data else {
+                self?.errorMessage = errorMessage
+                return
+            }
             self.data = data
             self.setDetails()
         }

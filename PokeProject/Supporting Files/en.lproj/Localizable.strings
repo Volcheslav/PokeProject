@@ -6,6 +6,12 @@
   
 */
 
+// MARK: - NetworkDataFetcher
+"NO_DATA" = "No data";
+"ERR_CODE" = "Error code: ";
+"ERROR" = "Error message";
+"DECODE_ERROR" = "Decoding error: ";
+
  // MARK: - NamesList Screen
 
 "NO_CONNECTOIN" = "No connection";

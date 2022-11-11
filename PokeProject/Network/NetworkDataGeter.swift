@@ -15,11 +15,11 @@ class NetworkDataGeter: DataGeterProtocol {
         self.networkDataFetcher = networkDataFetcher
     }
     
-    func fetchDetailsList(urlString: String, completion: @escaping (PokemonDetailsNetworkModel?) -> Void) {
+    func fetchDetailsList(urlString: String, completion: @escaping (PokemonDetailsNetworkModel?, String?) -> Void) {
         networkDataFetcher.fetchData(urlString: urlString, completion: completion)
         }
     
-    func fetchNamesList(urlString: String, completion: @escaping (PokemonNamesListMainModel?) -> Void) {
+    func fetchNamesList(urlString: String, completion: @escaping (PokemonNamesListMainModel?, String?) -> Void) {
         networkDataFetcher.fetchData(urlString: urlString, completion: completion)
         }
 }

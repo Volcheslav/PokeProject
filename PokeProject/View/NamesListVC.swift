@@ -69,7 +69,7 @@ final class NamesListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        namesTableView.reloadData()
+        print(tableViewModel.errorMessage ?? "No data")
     }
     
     // MARK: - Prepare segue

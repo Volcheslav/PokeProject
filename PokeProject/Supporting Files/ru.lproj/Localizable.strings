@@ -5,6 +5,13 @@
   Created by User on 10.11.22.
   
 */
+
+// MARK: - NetworkDataFetcher
+"NO_DATA" = "Нет данных";
+"ERR_CODE" = "Код ошибки: ";
+"ERROR" = "Сообщение об ошибке: ";
+"DECODE_ERROR" = "Ошибка декодирования: ";
+
 // MARK: - NamesList Screen
 
 "NO_CONNECTOIN" = "Нет соединения с сетью";

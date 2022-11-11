@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DataFetcherProtocol {
-    func fetchData<T: Codable>(urlString: String, completion: @escaping (T?) -> Void)
+    func fetchData<T: Codable>(urlString: String, completion: @escaping (T?, String?) -> Void)
 }
