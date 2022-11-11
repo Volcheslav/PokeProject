@@ -20,8 +20,8 @@ class DetailsViewModel {
     
     private var url: String?
     private var name: String?
-    private var errorMessage: String?
     private var networkDataGeter: DataGeterProtocol
+    var errorMessage: String?
     
     // MARK: - Init function
     
