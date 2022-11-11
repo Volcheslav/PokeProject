@@ -8,15 +8,9 @@
 import Foundation
 import RealmSwift
 
-class RealmManager {
+class RealmManager: RealmManagerProtocol {
     
     let realm = try! Realm()
-    
-    static let shared = RealmManager()
-    
-    // MARK: - Init
-    
-    private init() {}
     
     // MARK: - Share and save public
     

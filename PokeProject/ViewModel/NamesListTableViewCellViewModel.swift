@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NamesListTableViewCellViewModel: TableViewCellViewModelType {
+class NamesListTableViewCellViewModel: TableViewCellViewModelTypeProtocol {
     
     // MARK: - View model
     

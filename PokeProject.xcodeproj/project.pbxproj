@@ -12,10 +12,10 @@
 		CE25F156291D2399008FC96A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE25F158291D2399008FC96A /* Localizable.strings */; };
 		CE47BB9D290C0A2000F5956E /* NamesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9C290C0A2000F5956E /* NamesListModel.swift */; };
 		CE47BB9F290C0C0300F5956E /* NamesListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9E290C0C0300F5956E /* NamesListTableViewModel.swift */; };
-		CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA0290C0CF300F5956E /* TableViewModelType.swift */; };
+		CE47BBA1290C0CF300F5956E /* TableViewModelTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */; };
 		CE47BBA6290C0F6400F5956E /* NamesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA5290C0F6400F5956E /* NamesListTableViewCell.swift */; };
 		CE47BBA9290C12E800F5956E /* NamesListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA8290C12E800F5956E /* NamesListTableViewCellViewModel.swift */; };
-		CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */; };
+		CE47BBAB290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */; };
 		CE47BBAC290C1AAC00F5956E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EB290B0C5500621DB6 /* Main.storyboard */; };
 		CE47BBAD290C1B8D00F5956E /* NamesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9A290C075200F5956E /* NamesListVC.swift */; };
 		CE7BA4742912B13400A9E613 /* RealmPokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */; };
@@ -53,10 +53,10 @@
 		CE47BB9A290C075200F5956E /* NamesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListVC.swift; sourceTree = "<group>"; };
 		CE47BB9C290C0A2000F5956E /* NamesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListModel.swift; sourceTree = "<group>"; };
 		CE47BB9E290C0C0300F5956E /* NamesListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewModel.swift; sourceTree = "<group>"; };
-		CE47BBA0290C0CF300F5956E /* TableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelType.swift; sourceTree = "<group>"; };
+		CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelTypeProtocol.swift; sourceTree = "<group>"; };
 		CE47BBA5290C0F6400F5956E /* NamesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewCell.swift; sourceTree = "<group>"; };
 		CE47BBA8290C12E800F5956E /* NamesListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
+		CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelTypeProtocol.swift; sourceTree = "<group>"; };
 		CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPokeModel.swift; sourceTree = "<group>"; };
 		CE7BA4752912B22100A9E613 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		CE7E65E2290B0C5500621DB6 /* PokeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,8 +143,8 @@
 		CE47BBA3290C0DE900F5956E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CE47BBA0290C0CF300F5956E /* TableViewModelType.swift */,
-				CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */,
+				CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */,
+				CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */,
 				CEF00368291E84A2000973B3 /* DataManagerProtocol.swift */,
 				CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */,
 				CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */,
@@ -409,10 +409,10 @@
 				CEEA33AB2911DB4400659C6E /* DetailsVC.swift in Sources */,
 				CE7BA4762912B22100A9E613 /* RealmManager.swift in Sources */,
 				CEF0036B291E8C26000973B3 /* NetworkDataGeter.swift in Sources */,
-				CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */,
+				CE47BBAB290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift in Sources */,
 				CEEF12A4291EA0950098C8DE /* RealmManagerProtocol.swift in Sources */,
 				CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */,
-				CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */,
+				CE47BBA1290C0CF300F5956E /* TableViewModelTypeProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

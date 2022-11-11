@@ -9,6 +9,8 @@ import Foundation
 
 class DetailsViewModel {
     
+    var realmManager: RealmManagerProtocol
+    
     // MARK: - ViewModels
     
     private var details: DetailsModel?
@@ -22,10 +24,11 @@ class DetailsViewModel {
     
     // MARK: - Init function
     
-    init(url: String, name: String, networkDataGeter: DataGeterProtocol) {
+    init(url: String, name: String, networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol) {
            self.url = url
            self.name = name
            self.networkDataGeter = networkDataGeter
+           self.realmManager = realmManager
            self.getDetails()
        }
     
@@ -71,12 +74,12 @@ class DetailsViewModel {
         model.weight = details.weight
         model.name = details.name
         model.types = details.types
-        RealmManager.shared.saveUniq(id: details.id, model: model)
+        realmManager.saveUniq(id: details.id, model: model)
     }
     
     func getDataFromRealm() {
         guard let name = name,
-              let realmModel = RealmManager.shared.shareRealmData().filter({ $0.name == name }).first else { return }
+              let realmModel = realmManager.shareRealmData().filter({ $0.name == name }).first else { return }
         self.details = DetailsModel(
             height: realmModel.height,
             id: realmModel.id,

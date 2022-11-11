@@ -6,7 +6,10 @@
 
 import Foundation
 
-class NamesListTableViewModel: NSObject, TableViewModelType {
+class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
+    
+    var networkDataGeter: DataGeterProtocol?
+    var realmManager: RealmManagerProtocol?
     
     // MARK: - Constants
     
@@ -20,8 +23,6 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     private var prevURL: String?
     private var names: [NamesListModel] = []
     
-    var networkDataGeter: DataGeterProtocol?
-    
     var numberOfRows: Int {
         return names.count
     }
@@ -31,6 +32,7 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     override init() {
         super.init()
         self.networkDataGeter = NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager()))
+        self.realmManager = RealmManager()
         self.fetchNames()
     }
     
@@ -53,10 +55,11 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
         return DetailsViewModel(
             url: names[selectedIndexPath.row].url,
             name: names[selectedIndexPath.row].name,
-            networkDataGeter: NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager())))
+            networkDataGeter: NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager())),
+            realmManager: RealmManager())
     }
     
-    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
+    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol? {
         let name = names[indexPath.row]
         return NamesListTableViewCellViewModel(nameModel: name)
     }
@@ -64,7 +67,8 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     // MARK: - Realm functions
     
     func getFromRealm() {
-        let realm = RealmManager.shared.shareRealmData()
+        guard let realmManager = realmManager else { return }
+        let realm = realmManager.shareRealmData()
         self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
     }
     
