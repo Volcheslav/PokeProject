@@ -16,6 +16,7 @@ Test project
 - English and Russian localizations
 - Custom icons
 - Postfix operator "§" added for localizing strings
+- Alert windows for network or decoding errors messages, and for offline mode
 
 ## Tech Stack
 
