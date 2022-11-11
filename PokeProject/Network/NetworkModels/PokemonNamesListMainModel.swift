@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct NamesListMainModel: Codable {
+struct PokemonNamesListMainModel: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [NamesListNetworkModel]
+    let results: [PokemonNamesListNetworkModel]
 }
 
 // MARK: - Result
-struct NamesListNetworkModel: Codable {
+struct PokemonNamesListNetworkModel: Codable {
     let name: String
     let url: String
 }

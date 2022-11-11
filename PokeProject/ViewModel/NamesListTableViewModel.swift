@@ -6,7 +6,10 @@
 
 import Foundation
 
-class NamesListTableViewModel: NSObject, TableViewModelType {
+class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
+    
+    var networkDataGeter: DataGeterProtocol?
+    var realmManager: RealmManagerProtocol?
     
     // MARK: - Constants
     
@@ -20,6 +23,7 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     private var prevURL: String?
     private var names: [NamesListModel] = []
     
+    var errorMessage: String?
     var numberOfRows: Int {
         return names.count
     }
@@ -28,6 +32,8 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     
     override init() {
         super.init()
+        self.networkDataGeter = NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager()))
+        self.realmManager = RealmManager()
         self.fetchNames()
     }
     
@@ -47,10 +53,14 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     
     func viewModelForSelectedRow() -> DetailsViewModel? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return DetailsViewModel(url: names[selectedIndexPath.row].url, name: names[selectedIndexPath.row].name)
+        return DetailsViewModel(
+            url: names[selectedIndexPath.row].url,
+            name: names[selectedIndexPath.row].name,
+            networkDataGeter: NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager())),
+            realmManager: RealmManager())
     }
     
-    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelType? {
+    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol? {
         let name = names[indexPath.row]
         return NamesListTableViewCellViewModel(nameModel: name)
     }
@@ -58,7 +68,8 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     // MARK: - Realm functions
     
     func getFromRealm() {
-        let realm = RealmManager.shared.shareRealmData()
+        guard let realmManager = realmManager else { return }
+        let realm = realmManager.shareRealmData()
         self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
     }
     
@@ -69,9 +80,12 @@ class NamesListTableViewModel: NSObject, TableViewModelType {
     }
     
     private func initTableData(url: String) {
-        let networkDataFetcher = NetworkDataFetcher()
-        networkDataFetcher.fetchNamesList(urlString: url) { [weak self] (data) in
-            guard let self = self, let data = data else { return }
+        guard let networkDataGeter = networkDataGeter else { return }
+        networkDataGeter.fetchNamesList(urlString: url) { [weak self] (data, errorMessage) in
+            guard let self = self, let data = data else {
+                self?.errorMessage = errorMessage
+                return
+            }
             self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
             self.prevURL = data.previous
             self.nextURl = data.next

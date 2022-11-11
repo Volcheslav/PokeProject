@@ -25,6 +25,7 @@ final class DetailsVC: UIViewController {
         case weightText = "WEIGHT"
         case cm = "CM"
         case gr = "GR"
+        case networkErrorAlertTitle = "NETWORK_ERR_TITLE"
     }
 
     // MARK: - Outlets
@@ -54,6 +55,9 @@ final class DetailsVC: UIViewController {
         super.viewDidAppear(animated)
         if NetworkMonitor.shared.isConnected != true {
             detailsViewModel?.getDataFromRealm()
+        }
+        if detailsViewModel?.errorMessage != nil {
+            self.showAlertWithCancelButn(title: (DetailsVCStrings.networkErrorAlertTitle.rawValue)§, message: (detailsViewModel?.errorMessage)!)
         }
         setLabeles()
     }

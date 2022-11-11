@@ -6,6 +6,12 @@
   
 */
 
+// MARK: - NetworkDataFetcher
+"NO_DATA" = "No data";
+"ERR_CODE" = "Error code: ";
+"ERROR" = "Error message";
+"DECODE_ERROR" = "Decoding error: ";
+
  // MARK: - NamesList Screen
 
 "NO_CONNECTOIN" = "No connection";
@@ -14,6 +20,7 @@
 "OFFLINE_ALERT_TITLE" = "Offline mode";
 "OFFLINE_ALERT_MESSAGE" = "In offline mode you can scrol saved pokemons list";
 "OFFLINE_ALERT_OK" = "OK";
+"NETWORK_ERR_TITLE" = "Network Error";
 
 // MARK: - Details Screen
 

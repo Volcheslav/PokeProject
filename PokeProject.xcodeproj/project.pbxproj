@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		286684F2109029BEA75CCABF /* Pods_PokeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E8995E6C785F809D459AEF /* Pods_PokeProject.framework */; };
+		CE00626C291EBE2B00E79AB0 /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00626B291EBE2B00E79AB0 /* AlertExtensions.swift */; };
 		CE25F151291D223B008FC96A /* StringOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25F150291D223B008FC96A /* StringOperator.swift */; };
 		CE25F156291D2399008FC96A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE25F158291D2399008FC96A /* Localizable.strings */; };
 		CE47BB9D290C0A2000F5956E /* NamesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9C290C0A2000F5956E /* NamesListModel.swift */; };
 		CE47BB9F290C0C0300F5956E /* NamesListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9E290C0C0300F5956E /* NamesListTableViewModel.swift */; };
-		CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA0290C0CF300F5956E /* TableViewModelType.swift */; };
+		CE47BBA1290C0CF300F5956E /* TableViewModelTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */; };
 		CE47BBA6290C0F6400F5956E /* NamesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA5290C0F6400F5956E /* NamesListTableViewCell.swift */; };
 		CE47BBA9290C12E800F5956E /* NamesListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA8290C12E800F5956E /* NamesListTableViewCellViewModel.swift */; };
-		CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */; };
+		CE47BBAB290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */; };
 		CE47BBAC290C1AAC00F5956E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EB290B0C5500621DB6 /* Main.storyboard */; };
 		CE47BBAD290C1B8D00F5956E /* NamesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9A290C075200F5956E /* NamesListVC.swift */; };
 		CE7BA4742912B13400A9E613 /* RealmPokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */; };
@@ -26,20 +27,26 @@
 		CE7E65F2290B0C5700621DB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */; };
 		CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE186332912BAEB0036B89F /* NetworkMonitor.swift */; };
 		CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3391290FC3FE00659C6E /* NetworkManager.swift */; };
-		CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */; };
+		CEEA3394290FC64C00659C6E /* PokemonNamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */; };
 		CEEA3396290FCB0E00659C6E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */; };
 		CEEA33A52911D1F300659C6E /* NamesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33A42911D1F300659C6E /* NamesListViewModel.swift */; };
 		CEEA33AB2911DB4400659C6E /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AA2911DB4400659C6E /* DetailsVC.swift */; };
 		CEEA33AD2911DE0300659C6E /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AC2911DE0300659C6E /* DetailsViewModel.swift */; };
-		CEEA33AF2911DF2E00659C6E /* DetailsNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AE2911DF2E00659C6E /* DetailsNetworkModel.swift */; };
+		CEEA33AF2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */; };
 		CEEA33B12911E81800659C6E /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33B02911E81800659C6E /* DetailsModel.swift */; };
 		CEEA33B32912913100659C6E /* UIIamgeViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */; };
+		CEEF12A4291EA0950098C8DE /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */; };
+		CEF00369291E84A2000973B3 /* NetworkDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF00368291E84A2000973B3 /* NetworkDataManagerProtocol.swift */; };
+		CEF0036B291E8C26000973B3 /* NetworkDataGeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */; };
+		CEF0036D291E8C7E000973B3 /* DataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */; };
+		CEF0036F291E8DD4000973B3 /* DataGeterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20E8995E6C785F809D459AEF /* Pods_PokeProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5723AEAF8BBD8BEB055130 /* Pods-PokeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeProject.release.xcconfig"; path = "Target Support Files/Pods-PokeProject/Pods-PokeProject.release.xcconfig"; sourceTree = "<group>"; };
 		A46F0CF8F28EE6BD312266B6 /* Pods-PokeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeProject.debug.xcconfig"; path = "Target Support Files/Pods-PokeProject/Pods-PokeProject.debug.xcconfig"; sourceTree = "<group>"; };
+		CE00626B291EBE2B00E79AB0 /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
 		CE25F150291D223B008FC96A /* StringOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringOperator.swift; sourceTree = "<group>"; };
 		CE25F152291D22CE008FC96A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		CE25F153291D22CF008FC96A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -48,10 +55,10 @@
 		CE47BB9A290C075200F5956E /* NamesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListVC.swift; sourceTree = "<group>"; };
 		CE47BB9C290C0A2000F5956E /* NamesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListModel.swift; sourceTree = "<group>"; };
 		CE47BB9E290C0C0300F5956E /* NamesListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewModel.swift; sourceTree = "<group>"; };
-		CE47BBA0290C0CF300F5956E /* TableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelType.swift; sourceTree = "<group>"; };
+		CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelTypeProtocol.swift; sourceTree = "<group>"; };
 		CE47BBA5290C0F6400F5956E /* NamesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewCell.swift; sourceTree = "<group>"; };
 		CE47BBA8290C12E800F5956E /* NamesListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
+		CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelTypeProtocol.swift; sourceTree = "<group>"; };
 		CE7BA4732912B13400A9E613 /* RealmPokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPokeModel.swift; sourceTree = "<group>"; };
 		CE7BA4752912B22100A9E613 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		CE7E65E2290B0C5500621DB6 /* PokeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,14 +70,19 @@
 		CE7E65F3290B0C5700621DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE186332912BAEB0036B89F /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		CEEA3391290FC3FE00659C6E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListMainModel.swift; sourceTree = "<group>"; };
+		CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNamesListMainModel.swift; sourceTree = "<group>"; };
 		CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		CEEA33A42911D1F300659C6E /* NamesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListViewModel.swift; sourceTree = "<group>"; };
 		CEEA33AA2911DB4400659C6E /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		CEEA33AC2911DE0300659C6E /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
-		CEEA33AE2911DF2E00659C6E /* DetailsNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNetworkModel.swift; sourceTree = "<group>"; };
+		CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsNetworkModel.swift; sourceTree = "<group>"; };
 		CEEA33B02911E81800659C6E /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIamgeViewExtension.swift; sourceTree = "<group>"; };
+		CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
+		CEF00368291E84A2000973B3 /* NetworkDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataManagerProtocol.swift; sourceTree = "<group>"; };
+		CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataGeter.swift; sourceTree = "<group>"; };
+		CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherProtocol.swift; sourceTree = "<group>"; };
+		CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGeterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +119,6 @@
 			children = (
 				CE7E65EE290B0C5700621DB6 /* Assets.xcassets */,
 				CE25F14F291D220D008FC96A /* Extensions */,
-				CE47BBA3290C0DE900F5956E /* Protocols */,
 				CE25F158291D2399008FC96A /* Localizable.strings */,
 			);
 			path = "Supporting Files";
@@ -116,6 +127,7 @@
 		CE25F14F291D220D008FC96A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CE00626B291EBE2B00E79AB0 /* AlertExtensions.swift */,
 				CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */,
 				CE25F150291D223B008FC96A /* StringOperator.swift */,
 			);
@@ -134,8 +146,12 @@
 		CE47BBA3290C0DE900F5956E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CE47BBA0290C0CF300F5956E /* TableViewModelType.swift */,
-				CE47BBAA290C136F00F5956E /* TableViewCellViewModelType.swift */,
+				CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */,
+				CE47BBAA290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift */,
+				CEF00368291E84A2000973B3 /* NetworkDataManagerProtocol.swift */,
+				CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */,
+				CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */,
+				CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -197,6 +213,7 @@
 				CE47BBA2290C0DC600F5956E /* Model */,
 				CE47BBA4290C0E1400F5956E /* View */,
 				CE47BBA7290C12BE00F5956E /* ViewModel */,
+				CE47BBA3290C0DE900F5956E /* Protocols */,
 				CE25F14E291D21DE008FC96A /* Supporting Files */,
 				CE7E65E5290B0C5500621DB6 /* AppDelegate.swift */,
 				CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */,
@@ -208,10 +225,10 @@
 		CEEA33A62911D9FA00659C6E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CEEF12A2291EA01C0098C8DE /* NetworkModels */,
 				CEEA3391290FC3FE00659C6E /* NetworkManager.swift */,
 				CEEA3395290FCB0E00659C6E /* NetworkDataFetcher.swift */,
-				CEEA3393290FC64C00659C6E /* NamesListMainModel.swift */,
-				CEEA33AE2911DF2E00659C6E /* DetailsNetworkModel.swift */,
+				CEF0036A291E8C26000973B3 /* NetworkDataGeter.swift */,
 				CEE186332912BAEB0036B89F /* NetworkMonitor.swift */,
 			);
 			path = Network;
@@ -224,6 +241,15 @@
 				CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CEEF12A2291EA01C0098C8DE /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */,
+				CEEA33AE2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift */,
+			);
+			path = NetworkModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,14 +393,18 @@
 				CE47BB9D290C0A2000F5956E /* NamesListModel.swift in Sources */,
 				CEEA33AD2911DE0300659C6E /* DetailsViewModel.swift in Sources */,
 				CEEA33B12911E81800659C6E /* DetailsModel.swift in Sources */,
+				CE00626C291EBE2B00E79AB0 /* AlertExtensions.swift in Sources */,
 				CEEA33A52911D1F300659C6E /* NamesListViewModel.swift in Sources */,
-				CEEA3394290FC64C00659C6E /* NamesListMainModel.swift in Sources */,
-				CEEA33AF2911DF2E00659C6E /* DetailsNetworkModel.swift in Sources */,
+				CEF0036F291E8DD4000973B3 /* DataGeterProtocol.swift in Sources */,
+				CEEA3394290FC64C00659C6E /* PokemonNamesListMainModel.swift in Sources */,
+				CEEA33AF2911DF2E00659C6E /* PokemonDetailsNetworkModel.swift in Sources */,
 				CE7BA4742912B13400A9E613 /* RealmPokeModel.swift in Sources */,
 				CE47BB9F290C0C0300F5956E /* NamesListTableViewModel.swift in Sources */,
 				CEEA33B32912913100659C6E /* UIIamgeViewExtension.swift in Sources */,
+				CEF0036D291E8C7E000973B3 /* DataFetcherProtocol.swift in Sources */,
 				CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */,
 				CE7E65E6290B0C5500621DB6 /* AppDelegate.swift in Sources */,
+				CEF00369291E84A2000973B3 /* NetworkDataManagerProtocol.swift in Sources */,
 				CE47BBA6290C0F6400F5956E /* NamesListTableViewCell.swift in Sources */,
 				CE47BBA9290C12E800F5956E /* NamesListTableViewCellViewModel.swift in Sources */,
 				CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */,
@@ -382,9 +412,11 @@
 				CE25F151291D223B008FC96A /* StringOperator.swift in Sources */,
 				CEEA33AB2911DB4400659C6E /* DetailsVC.swift in Sources */,
 				CE7BA4762912B22100A9E613 /* RealmManager.swift in Sources */,
-				CE47BBAB290C136F00F5956E /* TableViewCellViewModelType.swift in Sources */,
+				CEF0036B291E8C26000973B3 /* NetworkDataGeter.swift in Sources */,
+				CE47BBAB290C136F00F5956E /* TableViewCellViewModelTypeProtocol.swift in Sources */,
+				CEEF12A4291EA0950098C8DE /* RealmManagerProtocol.swift in Sources */,
 				CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */,
-				CE47BBA1290C0CF300F5956E /* TableViewModelType.swift in Sources */,
+				CE47BBA1290C0CF300F5956E /* TableViewModelTypeProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

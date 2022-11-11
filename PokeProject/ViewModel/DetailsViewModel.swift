@@ -9,21 +9,27 @@ import Foundation
 
 class DetailsViewModel {
     
+    var realmManager: RealmManagerProtocol
+    
     // MARK: - ViewModels
     
     private var details: DetailsModel?
-    private var data: DetailsNetworkModel?
+    private var data: PokemonDetailsNetworkModel?
     
     // MARK: - Variables
     
     private var url: String?
     private var name: String?
+    private var networkDataGeter: DataGeterProtocol
+    var errorMessage: String?
     
     // MARK: - Init function
     
-    init(url: String, name: String) {
+    init(url: String, name: String, networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol) {
            self.url = url
            self.name = name
+           self.networkDataGeter = networkDataGeter
+           self.realmManager = realmManager
            self.getDetails()
        }
     
@@ -37,10 +43,12 @@ class DetailsViewModel {
     // MARK: - Details model load functions
     
     private func getDetails() {
-        guard let url = url else { return }
-        let networkDataFetcher = NetworkDataFetcher()
-        networkDataFetcher.fetchDetailsList(urlString: url) { [weak self] (data) in
-            guard let self = self, let data = data else { return }
+        guard let url = url else { return } 
+        networkDataGeter.fetchDetailsList(urlString: url) { [weak self] (data, errorMessage) in
+            guard let self = self, let data = data else {
+                self?.errorMessage = errorMessage
+                return
+            }
             self.data = data
             self.setDetails()
         }
@@ -70,12 +78,12 @@ class DetailsViewModel {
         model.weight = details.weight
         model.name = details.name
         model.types = details.types
-        RealmManager.shared.saveUniq(id: details.id, model: model)
+        realmManager.saveUniq(id: details.id, model: model)
     }
     
     func getDataFromRealm() {
         guard let name = name,
-              let realmModel = RealmManager.shared.shareRealmData().filter({ $0.name == name }).first else { return }
+              let realmModel = realmManager.shareRealmData().filter({ $0.name == name }).first else { return }
         self.details = DetailsModel(
             height: realmModel.height,
             id: realmModel.id,

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol TableViewCellViewModelType {
+protocol TableViewCellViewModelTypeProtocol {
     var name: String { get }
 }

@@ -20,6 +20,9 @@ final class NamesListVC: UIViewController {
         case segueID = "detailsSegue"
         case backButton = "BACK_PAGE"
         case nextButton = "NEXT_PAGE"
+        case offlineAlertTitle = "OFFLINE_ALERT_TITLE"
+        case offlineAlertMessage = "OFFLINE_ALERT_MESSAGE"
+        case networkErrorAlertTitle = "NETWORK_ERR_TITLE"
     }
     
     // MARK: - Outlets
@@ -59,11 +62,22 @@ final class NamesListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if NetworkMonitor.shared.isConnected != true {
-           setOfflineInterface()
+            setOfflineInterface()
         }
         
         DispatchQueue.main.async {
             self.namesTableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if NetworkMonitor.shared.isConnected != true {
+            self.showAlertWithCancelButn(title: (NamesListVCStrings.offlineAlertTitle.rawValue)§, message: (NamesListVCStrings.offlineAlertMessage.rawValue)§)
+        }
+        
+        if tableViewModel.errorMessage != nil {
+            self.showAlertWithCancelButn(title: (NamesListVCStrings.networkErrorAlertTitle.rawValue)§, message: tableViewModel.errorMessage!)
         }
     }
     

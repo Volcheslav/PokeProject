@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailsNetworkModel: Codable {
+struct PokemonDetailsNetworkModel: Codable {
     let height: Int
     let id: Int
     let name: String
