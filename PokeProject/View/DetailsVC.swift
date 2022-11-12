@@ -41,6 +41,7 @@ final class DetailsVC: UIViewController {
     // MARK: - Actions
     
     @IBAction private func goBack(_ sender: UIButton) {
+        backButton.animateButton()
     }
     
     // MARK: - View lifecycle

@@ -40,10 +40,12 @@ final class NamesListVC: UIViewController {
     // MARK: - Actions
     
     @IBAction private func goLeftOnListAction(_ sender: UIButton) {
+        backButton.animateButton()
         changePage(changeFunc: tableViewModel.goLeftPage)
     }
     
     @IBAction private func goRightOnListAction(_ sender: UIButton) {
+        nextButton.animateButton()
         changePage(changeFunc: tableViewModel.goRightPage)
     }
     

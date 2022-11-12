@@ -11,6 +11,7 @@
 		CE00626C291EBE2B00E79AB0 /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00626B291EBE2B00E79AB0 /* AlertExtensions.swift */; };
 		CE25F151291D223B008FC96A /* StringOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25F150291D223B008FC96A /* StringOperator.swift */; };
 		CE25F156291D2399008FC96A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE25F158291D2399008FC96A /* Localizable.strings */; };
+		CE34AA86291FB64000EE8C45 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34AA85291FB64000EE8C45 /* ButtonExtension.swift */; };
 		CE47BB9D290C0A2000F5956E /* NamesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9C290C0A2000F5956E /* NamesListModel.swift */; };
 		CE47BB9F290C0C0300F5956E /* NamesListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BB9E290C0C0300F5956E /* NamesListTableViewModel.swift */; };
 		CE47BBA1290C0CF300F5956E /* TableViewModelTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47BBA0290C0CF300F5956E /* TableViewModelTypeProtocol.swift */; };
@@ -54,6 +55,7 @@
 		CE25F153291D22CF008FC96A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE25F157291D2399008FC96A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE25F159291D239E008FC96A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE34AA85291FB64000EE8C45 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		CE47BB9A290C075200F5956E /* NamesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListVC.swift; sourceTree = "<group>"; };
 		CE47BB9C290C0A2000F5956E /* NamesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListModel.swift; sourceTree = "<group>"; };
 		CE47BB9E290C0C0300F5956E /* NamesListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesListTableViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				CE00626B291EBE2B00E79AB0 /* AlertExtensions.swift */,
 				CEEA33B22912913000659C6E /* UIIamgeViewExtension.swift */,
 				CE25F150291D223B008FC96A /* StringOperator.swift */,
+				CE34AA85291FB64000EE8C45 /* ButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				CE7BA4742912B13400A9E613 /* RealmPokeModel.swift in Sources */,
 				CE47BB9F290C0C0300F5956E /* NamesListTableViewModel.swift in Sources */,
 				CEEA33B32912913100659C6E /* UIIamgeViewExtension.swift in Sources */,
+				CE34AA86291FB64000EE8C45 /* ButtonExtension.swift in Sources */,
 				CEF0036D291E8C7E000973B3 /* DataFetcherProtocol.swift in Sources */,
 				CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */,
 				CE7E65E6290B0C5500621DB6 /* AppDelegate.swift in Sources */,
