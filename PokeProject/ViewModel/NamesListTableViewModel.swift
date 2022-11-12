@@ -8,8 +8,8 @@ import Foundation
 
 class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     
-    var networkDataGeter: DataGeterProtocol?
-    var realmManager: RealmManagerProtocol?
+    private var networkDataGeter: DataGeterProtocol?
+    private var realmManager: RealmManagerProtocol?
     
     // MARK: - Constants
     
@@ -30,11 +30,13 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     
     // MARK: - Init
     
+    init(networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol ) {
+        self.networkDataGeter = networkDataGeter
+        self.realmManager = realmManager
+    }
+    
     override init() {
         super.init()
-        self.networkDataGeter = NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager()))
-        self.realmManager = RealmManager()
-        self.fetchNames()
     }
     
     // MARK: - List change functions
@@ -57,7 +59,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
             url: names[selectedIndexPath.row].url,
             name: names[selectedIndexPath.row].name,
             networkDataGeter: NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager())),
-            realmManager: RealmManager())
+            realmManager: RealmManager(), networkMonitor: NetworkMonitor())
     }
     
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol? {
@@ -92,7 +94,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
         }
     }
     
-    private func fetchNames() {
+   func fetchNames() {
         initTableData(url: self.url)
     }
 }

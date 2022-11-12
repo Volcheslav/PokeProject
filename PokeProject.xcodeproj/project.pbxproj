@@ -25,6 +25,8 @@
 		CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E65E7290B0C5500621DB6 /* SceneDelegate.swift */; };
 		CE7E65EF290B0C5700621DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65EE290B0C5700621DB6 /* Assets.xcassets */; };
 		CE7E65F2290B0C5700621DB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E65F0290B0C5700621DB6 /* LaunchScreen.storyboard */; };
+		CE90402B291F8E3A00CC5EC4 /* NetworkMonitorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90402A291F8E3900CC5EC4 /* NetworkMonitorProtocol.swift */; };
+		CE90402D291F8F5C00CC5EC4 /* NameListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90402C291F8F5C00CC5EC4 /* NameListViewModelProtocol.swift */; };
 		CEE186342912BAEB0036B89F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE186332912BAEB0036B89F /* NetworkMonitor.swift */; };
 		CEEA3392290FC3FE00659C6E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3391290FC3FE00659C6E /* NetworkManager.swift */; };
 		CEEA3394290FC64C00659C6E /* PokemonNamesListMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */; };
@@ -68,6 +70,8 @@
 		CE7E65EE290B0C5700621DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7E65F1290B0C5700621DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7E65F3290B0C5700621DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE90402A291F8E3900CC5EC4 /* NetworkMonitorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorProtocol.swift; sourceTree = "<group>"; };
+		CE90402C291F8F5C00CC5EC4 /* NameListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameListViewModelProtocol.swift; sourceTree = "<group>"; };
 		CEE186332912BAEB0036B89F /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		CEEA3391290FC3FE00659C6E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEEA3393290FC64C00659C6E /* PokemonNamesListMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNamesListMainModel.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				CEF0036C291E8C7E000973B3 /* DataFetcherProtocol.swift */,
 				CEF0036E291E8DD4000973B3 /* DataGeterProtocol.swift */,
 				CEEF12A3291EA0950098C8DE /* RealmManagerProtocol.swift */,
+				CE90402A291F8E3900CC5EC4 /* NetworkMonitorProtocol.swift */,
+				CE90402C291F8F5C00CC5EC4 /* NameListViewModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				CE47BB9D290C0A2000F5956E /* NamesListModel.swift in Sources */,
 				CEEA33AD2911DE0300659C6E /* DetailsViewModel.swift in Sources */,
 				CEEA33B12911E81800659C6E /* DetailsModel.swift in Sources */,
+				CE90402B291F8E3A00CC5EC4 /* NetworkMonitorProtocol.swift in Sources */,
 				CE00626C291EBE2B00E79AB0 /* AlertExtensions.swift in Sources */,
 				CEEA33A52911D1F300659C6E /* NamesListViewModel.swift in Sources */,
 				CEF0036F291E8DD4000973B3 /* DataGeterProtocol.swift in Sources */,
@@ -407,6 +414,7 @@
 				CEF00369291E84A2000973B3 /* NetworkDataManagerProtocol.swift in Sources */,
 				CE47BBA6290C0F6400F5956E /* NamesListTableViewCell.swift in Sources */,
 				CE47BBA9290C12E800F5956E /* NamesListTableViewCellViewModel.swift in Sources */,
+				CE90402D291F8F5C00CC5EC4 /* NameListViewModelProtocol.swift in Sources */,
 				CE7E65E8290B0C5500621DB6 /* SceneDelegate.swift in Sources */,
 				CE47BBAD290C1B8D00F5956E /* NamesListVC.swift in Sources */,
 				CE25F151291D223B008FC96A /* StringOperator.swift in Sources */,

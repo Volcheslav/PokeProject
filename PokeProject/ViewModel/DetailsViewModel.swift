@@ -9,7 +9,9 @@ import Foundation
 
 class DetailsViewModel {
     
-    var realmManager: RealmManagerProtocol
+    private var realmManager: RealmManagerProtocol
+    private var networkMonitor: NetworkMonitorProtocol
+    private var networkDataGeter: DataGeterProtocol
     
     // MARK: - ViewModels
     
@@ -20,18 +22,26 @@ class DetailsViewModel {
     
     private var url: String?
     private var name: String?
-    private var networkDataGeter: DataGeterProtocol
+    
     var errorMessage: String?
     
     // MARK: - Init function
     
-    init(url: String, name: String, networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol) {
-           self.url = url
-           self.name = name
-           self.networkDataGeter = networkDataGeter
-           self.realmManager = realmManager
-           self.getDetails()
-       }
+    init(url: String, name: String, networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol, networkMonitor: NetworkMonitorProtocol) {
+        self.url = url
+        self.name = name
+        self.networkDataGeter = networkDataGeter
+        self.realmManager = realmManager
+        self.networkMonitor = networkMonitor
+        self.getDetails()
+        self.networkMonitor.startMonitoring()
+    }
+    
+    // MARK: Get network monitor state
+    
+    func returnConnectionState() -> Bool? {
+        return networkMonitor.isConnected
+    }
     
     // MARK: Share details
     
@@ -43,7 +53,7 @@ class DetailsViewModel {
     // MARK: - Details model load functions
     
     private func getDetails() {
-        guard let url = url else { return } 
+        guard let url = url else { return }
         networkDataGeter.fetchDetailsList(urlString: url) { [weak self] (data, errorMessage) in
             guard let self = self, let data = data else {
                 self?.errorMessage = errorMessage
@@ -70,17 +80,6 @@ class DetailsViewModel {
     
     // MARK: - Realm functions
     
-    private func saveToRealm(details: DetailsModel) {
-        let model = RealmPokeModel()
-        model.id = details.id
-        model.height = details.height
-        model.sprites = details.sprites
-        model.weight = details.weight
-        model.name = details.name
-        model.types = details.types
-        realmManager.saveUniq(id: details.id, model: model)
-    }
-    
     func getDataFromRealm() {
         guard let name = name,
               let realmModel = realmManager.shareRealmData().filter({ $0.name == name }).first else { return }
@@ -91,5 +90,16 @@ class DetailsViewModel {
             sprites: realmModel.sprites,
             types: realmModel.types,
             weight: realmModel.weight)
+    }
+    
+    private func saveToRealm(details: DetailsModel) {
+        let model = RealmPokeModel()
+        model.id = details.id
+        model.height = details.height
+        model.sprites = details.sprites
+        model.weight = details.weight
+        model.name = details.name
+        model.types = details.types
+        realmManager.saveUniq(id: details.id, model: model)
     }
 }

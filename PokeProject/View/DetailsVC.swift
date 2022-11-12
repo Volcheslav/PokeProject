@@ -47,13 +47,12 @@ final class DetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkMonitor.shared.startMonitoring()
         setLoadingLabels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if NetworkMonitor.shared.isConnected != true {
+        if detailsViewModel?.returnConnectionState() != true {
             detailsViewModel?.getDataFromRealm()
         }
         if detailsViewModel?.errorMessage != nil {
