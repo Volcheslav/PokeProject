@@ -72,7 +72,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     func getFromRealm() {
         guard let realmManager = realmManager else { return }
         let realm = realmManager.shareRealmData()
-        self.names = realm.map { NamesListModel(name: $0.name, url: offlineURLPlaceholder) }
+        self.names = realm.map { NamesListModel(name: $0.name.capitalized, url: offlineURLPlaceholder) }
     }
     
     // MARK: - Table functions
@@ -88,7 +88,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
                 self?.errorMessage = errorMessage
                 return
             }
-            self.names = data.results.map { NamesListModel(name: $0.name, url: $0.url) }
+            self.names = data.results.map { NamesListModel(name: $0.name.capitalized, url: $0.url) }
             self.prevURL = data.previous
             self.nextURl = data.next
         }
