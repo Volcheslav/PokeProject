@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NamesListTableViewCell: UITableViewCell {
+final class NamesListTableViewCell: UITableViewCell {
     
     // MARK: - View models
     

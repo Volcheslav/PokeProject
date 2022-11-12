@@ -8,8 +8,8 @@ import Foundation
 
 class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     
-    var networkDataGeter: DataGeterProtocol?
-    var realmManager: RealmManagerProtocol?
+    private var networkDataGeter: DataGeterProtocol?
+    private var realmManager: RealmManagerProtocol?
     
     // MARK: - Constants
     
@@ -59,7 +59,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
             url: names[selectedIndexPath.row].url,
             name: names[selectedIndexPath.row].name,
             networkDataGeter: NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager())),
-            realmManager: RealmManager())
+            realmManager: RealmManager(), networkMonitor: NetworkMonitor())
     }
     
     func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol? {

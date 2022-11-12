@@ -35,6 +35,7 @@ final class NamesListVC: UIViewController {
     // MARK: View Models
     
     @IBOutlet private var tableViewModel: NamesListTableViewModel!
+    private var namesListViewModel: NameListViewModelProtocol?
     
     // MARK: - Actions
     
@@ -55,14 +56,15 @@ final class NamesListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        namesListViewModel = NamesListViewModel(networkMonitor: NetworkMonitor())
         tableViewModelPrepare()
         setInterface()
-        NetworkMonitor.shared.startMonitoring()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if NetworkMonitor.shared.isConnected != true {
+        if namesListViewModel?.returnConnectionState() != true {
             setOfflineInterface()
         }
         
@@ -73,10 +75,9 @@ final class NamesListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if NetworkMonitor.shared.isConnected != true {
+        if namesListViewModel?.returnConnectionState() != true {
             self.showAlertWithCancelButn(title: (NamesListVCStrings.offlineAlertTitle.rawValue)§, message: (NamesListVCStrings.offlineAlertMessage.rawValue)§)
         }
-        
         if tableViewModel.errorMessage != nil {
             self.showAlertWithCancelButn(title: (NamesListVCStrings.networkErrorAlertTitle.rawValue)§, message: tableViewModel.errorMessage!)
         }
@@ -96,7 +97,7 @@ final class NamesListVC: UIViewController {
     // MARK: - Paging function
     
     private func changePage(changeFunc: @escaping () -> Void) {
-        if NetworkMonitor.shared.isConnected == true {
+        if namesListViewModel?.returnConnectionState() == true {
             changeFunc()
             DispatchQueue.main.async {
                 self.namesTableView.reloadData()

@@ -19,7 +19,7 @@ extension UIViewController {
 // MARK: - Extension alert controller
 extension UIAlertController {
     func addCancelAction () {
-        let cancelAction = UIAlertAction(title: ("CANCEL")§, style: .cancel)
+        let cancelAction = UIAlertAction(title: ("OFFLINE_ALERT_OK")§, style: .cancel)
         self.addAction(cancelAction)
     }
 }
