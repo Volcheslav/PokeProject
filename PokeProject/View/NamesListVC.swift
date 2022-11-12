@@ -34,7 +34,7 @@ final class NamesListVC: UIViewController {
     
     // MARK: View Models
     
-    @IBOutlet private weak var tableViewModel: NamesListTableViewModel!
+    @IBOutlet private var tableViewModel: NamesListTableViewModel!
     
     // MARK: - Actions
     
@@ -55,6 +55,7 @@ final class NamesListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewModelPrepare()
         setInterface()
         NetworkMonitor.shared.startMonitoring()
     }
@@ -103,12 +104,21 @@ final class NamesListVC: UIViewController {
         }
     }
     
-    // MARK: - Set interface function
+    // MARK: - Set interface functions
     
     private func setInterface() {
         backButton.setTitle((NamesListVCStrings.backButton.rawValue)§, for: .normal)
         nextButton.setTitle((NamesListVCStrings.nextButton.rawValue)§, for: .normal)
         namesTableView.isScrollEnabled = false
+    }
+    
+    private func tableViewModelPrepare() {
+        tableViewModel = NamesListTableViewModel(
+            networkDataGeter: NetworkDataGeter(
+                networkDataFetcher: NetworkDataFetcher(
+                    networkManager: NetworkManager())),
+            realmManager: RealmManager())
+        tableViewModel.fetchNames()
     }
     
     // MARK: Set interface in offline mode

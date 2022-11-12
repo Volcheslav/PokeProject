@@ -30,11 +30,13 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     
     // MARK: - Init
     
+    init(networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol ) {
+        self.networkDataGeter = networkDataGeter
+        self.realmManager = realmManager
+    }
+    
     override init() {
         super.init()
-        self.networkDataGeter = NetworkDataGeter(networkDataFetcher: NetworkDataFetcher(networkManager: NetworkManager()))
-        self.realmManager = RealmManager()
-        self.fetchNames()
     }
     
     // MARK: - List change functions
@@ -92,7 +94,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
         }
     }
     
-    private func fetchNames() {
+   func fetchNames() {
         initTableData(url: self.url)
     }
 }
