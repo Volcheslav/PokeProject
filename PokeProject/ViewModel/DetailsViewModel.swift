@@ -82,7 +82,7 @@ class DetailsViewModel {
     
     func getDataFromRealm() {
         guard let name = name,
-              let realmModel = realmManager.returnRealmData().filter({ $0.name == name }).first else { return }
+              let realmModel = realmManager.returnRealmData().filter({ $0.name == name.lowercased() }).first else { return }
         self.details = DetailsModel(
             height: realmModel.height,
             id: realmModel.id,
