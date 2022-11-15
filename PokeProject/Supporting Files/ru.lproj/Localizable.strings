@@ -17,8 +17,10 @@
 "NO_CONNECTOIN" = "Нет соединения с сетью";
 "NEXT_PAGE" = "Следующий список";
 "BACK_PAGE" = "Предыдущий список";
-"OFFLINE_ALERT_TITLE" = "Локальный режим";
-"OFFLINE_ALERT_MESSAGE" = "В локальном режиме вы можете пролистывать список сохраненных покемонов";
+"OFFLINE_HEADER_TITLE" = "Локальный режим";
+"OFFLINE_FOOTER_MESSAGE" = "Листайте список, выбирайте покемона";
+"ONLINE_HEADER_TITLE" = "Онлайн режим";
+"ONLINE_FOOTER_MESSAGE" = "Выбирайте покемона";
 "OFFLINE_ALERT_OK" = "OK";
 "NETWORK_ERR_TITLE" = "Ошибка сети";
 

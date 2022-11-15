@@ -17,8 +17,10 @@
 "NO_CONNECTOIN" = "No connection";
 "NEXT_PAGE" = "Next page";
 "BACK_PAGE" = "Prev. page";
-"OFFLINE_ALERT_TITLE" = "Offline mode";
-"OFFLINE_ALERT_MESSAGE" = "In offline mode you can scrol saved pokemons list";
+"OFFLINE_HEADER_TITLE" = "Offline mode";
+"OFFLINE_FOOTER_MESSAGE" = "Scroll the list, choose a pokemon";
+"ONLINE_HEADER_TITLE" = "Online mode";
+"ONLINE_FOOTER_MESSAGE" = "Choose a pokemon";
 "OFFLINE_ALERT_OK" = "OK";
 "NETWORK_ERR_TITLE" = "Network Error";
 

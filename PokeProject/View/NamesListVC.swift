@@ -61,9 +61,6 @@ final class NamesListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if namesListViewModel?.returnConnectionState() != true {
-            self.showAlertWithCancelButn(title: ("OFFLINE_ALERT_TITLE")§, message: ("OFFLINE_ALERT_MESSAGE")§)
-        }
         if tableViewModel.errorMessage != nil {
             self.showAlertWithCancelButn(title: ("NETWORK_ERR_TITLE")§, message: tableViewModel.errorMessage!)
         }
@@ -128,6 +125,7 @@ final class NamesListVC: UIViewController {
 // MARK: - TableView Extensions
 
 extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewModel?.numberOfRows ?? 0
     }
@@ -151,5 +149,13 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = tableView.frame.height / Constants.NamesListVCConstants.cellsOnView
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return namesListViewModel?.returnConnectionState() != true ? ("OFFLINE_HEADER_TITLE")§ : ("ONLINE_HEADER_TITLE")§
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return namesListViewModel?.returnConnectionState() != true ? ("OFFLINE_FOOTER_MESSAGE")§ : ("ONLINE_FOOTER_MESSAGE")§
     }
 }
