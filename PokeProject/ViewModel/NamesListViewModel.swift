@@ -9,15 +9,15 @@ import Foundation
 
 class NamesListViewModel: NameListViewModelProtocol {
     
-    private var networkMonitor: NetworkMonitorProtocol
+    private var networkMonitor: NetworkMonitorProtocol?
     
-    init(networkMonitor: NetworkMonitorProtocol) {
+    init(networkMonitor: NetworkMonitorProtocol?) {
         self.networkMonitor = networkMonitor
-        self.networkMonitor.startMonitoring()
+        self.networkMonitor?.startMonitoring()
     }
     
     func returnConnectionState() -> Bool? {
-        return networkMonitor.isConnected
+        return networkMonitor?.isConnected
     }
 
 }

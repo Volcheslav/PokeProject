@@ -9,9 +9,9 @@ import Foundation
 
 class DetailsViewModel {
     
-    private var realmManager: RealmManagerProtocol
-    private var networkMonitor: NetworkMonitorProtocol
-    private var networkDataGeter: DataGeterProtocol
+    private var realmManager: RealmManagerProtocol?
+    private var networkMonitor: NetworkMonitorProtocol?
+    private var networkDataGeter: DataGeterProtocol?
     
     // MARK: - ViewModels
     
@@ -27,20 +27,20 @@ class DetailsViewModel {
     
     // MARK: - Init function
     
-    init(url: String, name: String, networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol, networkMonitor: NetworkMonitorProtocol) {
+    init(url: String?, name: String?, networkDataGeter: DataGeterProtocol?, realmManager: RealmManagerProtocol?, networkMonitor: NetworkMonitorProtocol?) {
         self.url = url
         self.name = name
         self.networkDataGeter = networkDataGeter
         self.realmManager = realmManager
         self.networkMonitor = networkMonitor
         self.getDetails()
-        self.networkMonitor.startMonitoring()
+        self.networkMonitor?.startMonitoring()
     }
     
     // MARK: Get network monitor state
     
     func checkIfIsConnected() -> Bool? {
-        return networkMonitor.isConnected
+        return networkMonitor?.isConnected
     }
     
     // MARK: Share details
@@ -54,7 +54,7 @@ class DetailsViewModel {
     
     private func getDetails() {
         guard let url = url else { return }
-        networkDataGeter.fetchDetailsList(urlString: url) { [weak self] (data, errorMessage) in
+        networkDataGeter?.fetchDetailsList(urlString: url) { [weak self] (data, errorMessage) in
             guard let self = self, let data = data else {
                 self?.errorMessage = errorMessage
                 return
@@ -82,7 +82,7 @@ class DetailsViewModel {
     
     func getDataFromRealm() {
         guard let name = name,
-              let realmModel = realmManager.returnRealmData().filter({ $0.name == name.lowercased() }).first else { return }
+              let realmModel = realmManager?.returnRealmData().filter({ $0.name == name.lowercased() }).first else { return }
         self.details = DetailsModel(
             height: realmModel.height,
             id: realmModel.id,
@@ -100,6 +100,6 @@ class DetailsViewModel {
         model.weight = details.weight
         model.name = details.name
         model.types = details.types
-        realmManager.saveUniq(id: details.id, model: model)
+        realmManager?.saveUniq(id: details.id, model: model)
     }
 }
