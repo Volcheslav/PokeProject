@@ -10,5 +10,7 @@ import Foundation
 struct Constants {
     struct NamesListVCConstants {
         static let cellsOnView: CGFloat = 10
+        static let segueID = "detailsSegue"
+        static let cellID = "nameCell"
     }
 }

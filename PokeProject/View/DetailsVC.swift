@@ -12,21 +12,6 @@ final class DetailsVC: UIViewController {
     // MARK: - ViewModels
     
     var detailsViewModel: DetailsViewModel?
-    
-    // MARK: - Strings enum
-    
-    private enum DetailsVCStrings: String {
-        case heightText = "HEIGHT"
-        case segueID = "detailsSegue"
-        case loading = "LOADING"
-        case backButton = "BACK"
-        case nextButton = "NEXT_PAGE"
-        case typesText = "TYPES"
-        case weightText = "WEIGHT"
-        case cm = "CM"
-        case gr = "GR"
-        case networkErrorAlertTitle = "NETWORK_ERR_TITLE"
-    }
 
     // MARK: - Outlets
     // MARK: Interface elements
@@ -57,7 +42,7 @@ final class DetailsVC: UIViewController {
             detailsViewModel?.getDataFromRealm()
         }
         if detailsViewModel?.errorMessage != nil {
-            self.showAlertWithCancelButn(title: (DetailsVCStrings.networkErrorAlertTitle.rawValue)§, message: (detailsViewModel?.errorMessage)!)
+            self.showAlertWithCancelButn(title: ("NETWORK_ERR_TITLE")§, message: (detailsViewModel?.errorMessage)!)
         }
         setLabeles()
     }
@@ -68,18 +53,18 @@ final class DetailsVC: UIViewController {
         guard let detailsVM = detailsViewModel, let details = detailsVM.returnDetails() else { return }
         DispatchQueue.main.async {
             self.nameLabel.text = "\(details.name.capitalized)"
-            self.heightLabel.text = "\((DetailsVCStrings.heightText.rawValue)§) \(details.height) \((DetailsVCStrings.cm.rawValue)§)"
-            self.weightLabel.text = "\((DetailsVCStrings.weightText.rawValue)§) \(details.weight) \((DetailsVCStrings.gr.rawValue)§)"
-            self.typesLabel.text = "\((DetailsVCStrings.typesText.rawValue)§) \(details.types)"
+            self.heightLabel.text = "\(("HEIGHT")§) \(details.height) \(("CM")§)"
+            self.weightLabel.text = "\(("WEIGHT")§) \(details.weight) \(("GR")§)"
+            self.typesLabel.text = "\(("TYPES")§) \(details.types)"
             self.pokeImage.loadFrom(URLAddress: details.sprites)
         }
     }
     
     private func setLoadingLabels() {
-        nameLabel.text = (DetailsVCStrings.loading.rawValue)§
-        typesLabel.text = "\((DetailsVCStrings.typesText.rawValue)§) \((DetailsVCStrings.loading.rawValue)§)"
-        weightLabel.text = "\((DetailsVCStrings.weightText.rawValue)§) \((DetailsVCStrings.loading.rawValue)§)"
-        heightLabel.text = "\((DetailsVCStrings.heightText.rawValue)§) \((DetailsVCStrings.loading.rawValue)§)"
-        backButton.setTitle((DetailsVCStrings.backButton.rawValue)§, for: .normal)
+        nameLabel.text = ("LOADING")§
+        typesLabel.text = "\(("TYPES")§) \(("LOADING")§)"
+        weightLabel.text = "\(("WEIGHT")§) \(("LOADING")§)"
+        heightLabel.text = "\(("HEIGHT")§) \(("LOADING")§)"
+        backButton.setTitle(("BACK")§, for: .normal)
     }
 }

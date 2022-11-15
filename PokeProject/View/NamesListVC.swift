@@ -9,18 +9,6 @@ import UIKit
 
 final class NamesListVC: UIViewController {
     
-    // MARK: Strings enum
-    
-    private enum NamesListVCStrings: String {
-        case cellID = "nameCell"
-        case segueID = "detailsSegue"
-        case backButton = "BACK_PAGE"
-        case nextButton = "NEXT_PAGE"
-        case offlineAlertTitle = "OFFLINE_ALERT_TITLE"
-        case offlineAlertMessage = "OFFLINE_ALERT_MESSAGE"
-        case networkErrorAlertTitle = "NETWORK_ERR_TITLE"
-    }
-    
     // MARK: - Outlets
     // MARK: Interface elements
     
@@ -74,10 +62,10 @@ final class NamesListVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if namesListViewModel?.returnConnectionState() != true {
-            self.showAlertWithCancelButn(title: (NamesListVCStrings.offlineAlertTitle.rawValue)§, message: (NamesListVCStrings.offlineAlertMessage.rawValue)§)
+            self.showAlertWithCancelButn(title: ("OFFLINE_ALERT_TITLE")§, message: ("OFFLINE_ALERT_MESSAGE")§)
         }
         if tableViewModel.errorMessage != nil {
-            self.showAlertWithCancelButn(title: (NamesListVCStrings.networkErrorAlertTitle.rawValue)§, message: tableViewModel.errorMessage!)
+            self.showAlertWithCancelButn(title: ("NETWORK_ERR_TITLE")§, message: tableViewModel.errorMessage!)
         }
     }
     
@@ -85,7 +73,7 @@ final class NamesListVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier, let tableViewModel = tableViewModel else { return }
-        if id == NamesListVCStrings.segueID.rawValue {
+        if id == Constants.NamesListVCConstants.segueID {
             if let dvc = segue.destination as? DetailsVC {
                 dvc.detailsViewModel = tableViewModel.viewModelForSelectedRow()
             }
@@ -107,8 +95,8 @@ final class NamesListVC: UIViewController {
     // MARK: - Set interface functions
     
     private func setInterface() {
-        backButton.setTitle((NamesListVCStrings.backButton.rawValue)§, for: .normal)
-        nextButton.setTitle((NamesListVCStrings.nextButton.rawValue)§, for: .normal)
+        backButton.setTitle(("BACK_PAGE")§, for: .normal)
+        nextButton.setTitle(("NEXT_PAGE")§, for: .normal)
         namesTableView.isScrollEnabled = false
         changeButtonVisibility()
     }
@@ -145,7 +133,7 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NamesListVCStrings.cellID.rawValue
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.NamesListVCConstants.cellID
                                                  , for: indexPath) as? NamesListTableViewCell
         guard let tableViewCell = cell else { return .init()}
         let cellViewModel = tableViewModel?.returnCellViewModel(indexPath: indexPath)
@@ -157,7 +145,7 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let tableViewModel = tableViewModel else { return }
         tableViewModel.selectRow(atIndexPath: indexPath)
-        performSegue(withIdentifier: NamesListVCStrings.segueID.rawValue, sender: nil)
+        performSegue(withIdentifier: Constants.NamesListVCConstants.segueID, sender: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
