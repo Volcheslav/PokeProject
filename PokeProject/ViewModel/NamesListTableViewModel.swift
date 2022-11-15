@@ -30,7 +30,7 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
     
     // MARK: - Init
     
-    init(networkDataGeter: DataGeterProtocol, realmManager: RealmManagerProtocol ) {
+    init(networkDataGeter: DataGeterProtocol?, realmManager: RealmManagerProtocol? ) {
         self.networkDataGeter = networkDataGeter
         self.realmManager = realmManager
     }
@@ -62,14 +62,18 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
             realmManager: RealmManager(), networkMonitor: NetworkMonitor())
     }
     
-    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol? {
+    func returnCellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol? {
         let name = names[indexPath.row]
         return NamesListTableViewCellViewModel(nameModel: name)
     }
     
+    func checkPreviousPageExists() -> Bool {
+        return prevURL != nil
+    }
+    
     // MARK: - Realm functions
     
-    func getFromRealm() {
+    func getDataFromRealm() {
         guard let realmManager = realmManager else { return }
         let realm = realmManager.shareRealmData()
         self.names = realm.map { NamesListModel(name: $0.name.capitalized, url: offlineURLPlaceholder) }

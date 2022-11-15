@@ -10,7 +10,7 @@ import Foundation
 protocol TableViewModelTypeProtocol {
     var numberOfRows: Int { get }
    // var networkDataGeter: DataGeterProtocol? { get set }
-    func cellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol?
+    func returnCellViewModel(indexPath: IndexPath) -> TableViewCellViewModelTypeProtocol?
     
     func viewModelForSelectedRow() -> DetailsViewModel?
     func selectRow(atIndexPath: IndexPath)

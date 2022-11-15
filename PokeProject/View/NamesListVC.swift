@@ -42,11 +42,13 @@ final class NamesListVC: UIViewController {
     @IBAction private func goLeftOnListAction(_ sender: UIButton) {
         backButton.animateButton()
         changePage(changeFunc: tableViewModel.goLeftPage)
+        changeButtonVisibility()
     }
     
     @IBAction private func goRightOnListAction(_ sender: UIButton) {
         nextButton.animateButton()
         changePage(changeFunc: tableViewModel.goRightPage)
+        changeButtonVisibility()
     }
     
     // MARK: Unwined segue
@@ -113,6 +115,7 @@ final class NamesListVC: UIViewController {
         backButton.setTitle((NamesListVCStrings.backButton.rawValue)§, for: .normal)
         nextButton.setTitle((NamesListVCStrings.nextButton.rawValue)§, for: .normal)
         namesTableView.isScrollEnabled = false
+        changeButtonVisibility()
     }
     
     private func tableViewModelPrepare() {
@@ -127,10 +130,14 @@ final class NamesListVC: UIViewController {
     // MARK: Set interface in offline mode
     
     private func setOfflineInterface() {
-        tableViewModel.getFromRealm()
+        tableViewModel.getDataFromRealm()
         namesTableView.isScrollEnabled = true
         backButton.isHidden = true
         nextButton.isHidden = true
+    }
+    
+    private func changeButtonVisibility() {
+            backButton.isHidden = !tableViewModel.checkPreviousPageExists()
     }
 }
 
@@ -145,7 +152,7 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NamesListVCStrings.cellID.rawValue
                                                  , for: indexPath) as? NamesListTableViewCell
         guard let tableViewCell = cell else { return .init()}
-        let cellViewModel = tableViewModel?.cellViewModel(indexPath: indexPath)
+        let cellViewModel = tableViewModel?.returnCellViewModel(indexPath: indexPath)
         tableViewCell.viewModel = cellViewModel as? NamesListTableViewCellViewModel
         
         return tableViewCell
