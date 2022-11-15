@@ -8,6 +8,6 @@
 import Foundation
 
 protocol RealmManagerProtocol {
-    func shareRealmData() -> [RealmPokeModel]
+    func returnRealmData() -> [RealmPokeModel]
     func saveUniq(id: String, model: RealmPokeModel)
 }

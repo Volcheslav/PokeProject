@@ -9,10 +9,6 @@ import UIKit
 
 final class NamesListVC: UIViewController {
     
-    // MARK: - Constants
-    
-    private let cellsOnView: CGFloat = 10
-    
     // MARK: Strings enum
     
     private enum NamesListVCStrings: String {
@@ -42,13 +38,11 @@ final class NamesListVC: UIViewController {
     @IBAction private func goLeftOnListAction(_ sender: UIButton) {
         backButton.animateButton()
         changePage(changeFunc: tableViewModel.goLeftPage)
-        changeButtonVisibility()
     }
     
     @IBAction private func goRightOnListAction(_ sender: UIButton) {
         nextButton.animateButton()
         changePage(changeFunc: tableViewModel.goRightPage)
-        changeButtonVisibility()
     }
     
     // MARK: Unwined segue
@@ -107,6 +101,7 @@ final class NamesListVC: UIViewController {
                 self.namesTableView.reloadData()
             }
         }
+        changeButtonVisibility()
     }
     
     // MARK: - Set interface functions
@@ -137,7 +132,8 @@ final class NamesListVC: UIViewController {
     }
     
     private func changeButtonVisibility() {
-            backButton.isHidden = !tableViewModel.checkPreviousPageExists()
+        backButton.isHidden = !tableViewModel.checkPreviousPageExists().0
+        nextButton.isHidden = !tableViewModel.checkPreviousPageExists().1
     }
 }
 
@@ -165,7 +161,7 @@ extension NamesListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = tableView.frame.height / cellsOnView
+        let height = tableView.frame.height / Constants.NamesListVCConstants.cellsOnView
         return height
     }
 }

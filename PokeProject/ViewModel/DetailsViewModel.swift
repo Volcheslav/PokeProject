@@ -39,13 +39,13 @@ class DetailsViewModel {
     
     // MARK: Get network monitor state
     
-    func returnConnectionState() -> Bool? {
+    func checkIfIsConnected() -> Bool? {
         return networkMonitor.isConnected
     }
     
     // MARK: Share details
     
-    func shareDetails() -> DetailsModel? {
+    func returnDetails() -> DetailsModel? {
         guard let details = details else { return nil }
         return details
     }
@@ -82,7 +82,7 @@ class DetailsViewModel {
     
     func getDataFromRealm() {
         guard let name = name,
-              let realmModel = realmManager.shareRealmData().filter({ $0.name == name }).first else { return }
+              let realmModel = realmManager.returnRealmData().filter({ $0.name == name }).first else { return }
         self.details = DetailsModel(
             height: realmModel.height,
             id: realmModel.id,

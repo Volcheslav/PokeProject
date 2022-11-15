@@ -53,7 +53,7 @@ final class DetailsVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if detailsViewModel?.returnConnectionState() != true {
+        if detailsViewModel?.checkIfIsConnected() != true {
             detailsViewModel?.getDataFromRealm()
         }
         if detailsViewModel?.errorMessage != nil {
@@ -65,7 +65,7 @@ final class DetailsVC: UIViewController {
     // MARK: - Set interface functions
     
     private func setLabeles() {
-        guard let detailsVM = detailsViewModel, let details = detailsVM.shareDetails() else { return }
+        guard let detailsVM = detailsViewModel, let details = detailsVM.returnDetails() else { return }
         DispatchQueue.main.async {
             self.nameLabel.text = "\(details.name.capitalized)"
             self.heightLabel.text = "\((DetailsVCStrings.heightText.rawValue)§) \(details.height) \((DetailsVCStrings.cm.rawValue)§)"

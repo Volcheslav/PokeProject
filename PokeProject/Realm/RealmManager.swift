@@ -14,12 +14,12 @@ class RealmManager: RealmManagerProtocol {
     
     // MARK: - Share and save public
     
-    func shareRealmData() -> [RealmPokeModel] {
+    func returnRealmData() -> [RealmPokeModel] {
         return Array(realm.objects(RealmPokeModel.self))
     }
     
     func saveUniq(id: String, model: RealmPokeModel) {
-        if findInRealm(id: id) {
+        if checkIfExistsInRealm(id: id) {
             savePokeModel(model: model)
         } else {
             return
@@ -35,7 +35,7 @@ class RealmManager: RealmManagerProtocol {
         }
     }
     
-    private func findInRealm(id: String) -> Bool {
+    private func checkIfExistsInRealm(id: String) -> Bool {
         let pokeModels = realm.objects(RealmPokeModel.self)
         return pokeModels.filter { $0.id == id }.isEmpty
     }

@@ -67,15 +67,15 @@ class NamesListTableViewModel: NSObject, TableViewModelTypeProtocol {
         return NamesListTableViewCellViewModel(nameModel: name)
     }
     
-    func checkPreviousPageExists() -> Bool {
-        return prevURL != nil
+    func checkPreviousPageExists() -> (Bool, Bool) {
+        return (prevURL != nil, nextURl != nil)
     }
     
     // MARK: - Realm functions
     
     func getDataFromRealm() {
         guard let realmManager = realmManager else { return }
-        let realm = realmManager.shareRealmData()
+        let realm = realmManager.returnRealmData()
         self.names = realm.map { NamesListModel(name: $0.name.capitalized, url: offlineURLPlaceholder) }
     }
     
